@@ -6,17 +6,13 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
-    "test": "jest",
-    "doc": "docker run --rm -p 8000:8000 -v server:/app/db simple-server"
+    "test": "jest"
   },
-  "author": "Denys Voskoboinykov",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "csv-stringify": "^5.3.6",
-    "csvtojson": "^2.0.10",
     "jest": "^25.2.6",
-    "nodemon": "^2.0.2",
-    "shortid": "^2.2.15"
+    "nodemon": "^2.0.2"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
