@@ -6,13 +6,14 @@ const app = express();
 let devices = [];
 let id = 1;
 function generateID() {
-    return id++;
+  return id++;
 }
 let jsonParser = bodyParser.json();
+let router = express.Router();
 
-app.use(logger("dev"));
+router.use(logger("dev"));
 app.use(errorHandler());
-app.post("/devices",jsonParser, (req, res, next) => {
+app.post("/devices", jsonParser, (req, res, next) => {
   let device = req.body;
   device.id = generateID();
   devices.push(device);
@@ -28,14 +29,13 @@ app.get("/devices", (req, res, next) => {
 app.get("/devices/:id", function(req, res, next) {
   let index = req.params.id - 1;
   if (devices[index]) {
-  res.json(devices[index]);
-  res.end();
-  } else 
-  res.sendStatus(404);
+    res.json(devices[index]);
+    res.end();
+  } else res.sendStatus(404);
 });
 app.delete("/devices/:id", function(req, res, next) {
   let index = req.params.id - 1;
-  devices.splice(index,1)
+  devices.splice(index, 1);
   res.sendStatus(200);
   res.end();
 });
