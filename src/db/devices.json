@@ -1,28 +1,3 @@
 {
-  "devices": [
-    {
-      "id": 1,
-      "name": "first",
-      "state": true,
-      "range": { "min": 1, "max": 10, "value": 5 }
-    },
-    {
-      "id": 2,
-      "name": "second",
-      "state": true,
-      "range": { "min": 1, "max": 100, "value": 25 }
-    },
-    {
-      "id": 3,
-      "name": "third",
-      "state": false,
-      "range": { "min": 1, "max": 5, "value": 4 }
-    },
-    {
-      "name": "third",
-      "state": false,
-      "range": { "min": 1, "max": 5, "value": 4 },
-      "id": "3"
-    }
-  ]
+    "devices" : []
 }
