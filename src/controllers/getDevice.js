@@ -14,3 +14,5 @@ const getDevice = async (req, res) => {
     res.sendStatus(404);
   }
 };
+
+module.exports = getDevice;

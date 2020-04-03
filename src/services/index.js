@@ -1,14 +1,18 @@
-const deleteDeviceById = require('./deleteDeviceById');
 const readFile = require('./readFile');
 const writeFile = require('./writeFile');
+
 const addDevice = require('./addDevice');
 const getDeviceById = require('./getDeviceById');
 
+const deleteDeviceById = require('./deleteDeviceById');
+const updateDeviceById = require('./updateDeviceById');
+
 module.exports = {
-  deleteDeviceById,
   readFile,
   writeFile,
   addDevice,
-  getDeviceById
+  getDeviceById,
+  deleteDeviceById,
+  updateDeviceById
 };
 
