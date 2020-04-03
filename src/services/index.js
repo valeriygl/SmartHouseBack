@@ -1,15 +1,14 @@
-<<<<<<< HEAD
-const addDevice = require('./addDevice');
-
-module.exports = { addDevice };
-=======
 const deleteDeviceById = require('./deleteDeviceById');
 const readFile = require('./readFile');
 const writeFile = require('./writeFile');
+const addDevice = require('./addDevice');
+const getDeviceById = require('./getDeviceById');
 
 module.exports = {
   deleteDeviceById,
   readFile,
-  writeFile
+  writeFile,
+  addDevice,
+  getDeviceById
 };
->>>>>>> 5e8b08aae391a86ac883d6158047cc3b534703a0
+

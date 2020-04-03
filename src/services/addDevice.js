@@ -1,14 +1,17 @@
 const fs = require('fs');
+const readFile = require('./readFile');
+const writeFile = require('./writeFile');
 
-const addDevice = device => {
-  fs.readFile('db/device.json', (err, data) => {
-    if (err) {
-      throw console.error(err);
-    }
-    let { devices } = JSON.parse(data);
+const addDevice = async (device, path) => {
+  try {
+    const store = await readFile(path);
+    let { devices } = JSON.parse(store);
     devices.push(device);
-    fs.writeFile('db/devices.json', JSON.stringify(devices));
-  });
+    const postedDevices = JSON.stringify({ devices: devices });
+    await writeFile(path, postedDevices);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 module.exports = addDevice;
