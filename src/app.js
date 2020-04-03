@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const errorHandler = require('errorhandler');
-const { deleteDevice } = require('./controllers');
+const { deleteDevice, updateDevice } = require('./controllers');
 const app = express();
 let devices = [];
 let id = 1;
@@ -14,8 +14,10 @@ let router = express.Router();
 
 router.use(logger('dev'));
 app.use(errorHandler());
+app.use(bodyParser.json());
 
 app.delete('/homes/:homeId/devices/:id', deleteDevice);
+app.put('/homes/:homeId/devices/:id', updateDevice);
 
 app.post('/devices', jsonParser, (req, res, next) => {
   let device = req.body;
