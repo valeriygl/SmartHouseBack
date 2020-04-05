@@ -6,6 +6,7 @@ const deleteDeviceById = require('./deleteDeviceById');
 const updateDeviceById = require('./updateDeviceById');
 const searchBySubname = require('./searchBySubname');
 const paginate = require('./paginate');
+const filterByType = require('./filterByType');
 
 module.exports = {
   readFile,
@@ -16,4 +17,5 @@ module.exports = {
   updateDeviceById,
   searchBySubname,
   paginate,
+  filterByType,
 };
