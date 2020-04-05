@@ -1,7 +1,7 @@
 const getNextId = require('../helpers');
 const path = require('path');
 const { addDevice } = require('../services');
-const { storePath, idPath } = require('../config/config');
+const { storePath, idPath } = require('../config');
 
 const postDevice = async (req, res) => {
   try {
@@ -13,7 +13,7 @@ const postDevice = async (req, res) => {
     res.json(newDevice);
     res.end();
   } catch (error) {
-    console.log(error);
+    console.error(error);
 
     res.sendStatus(500);
   }

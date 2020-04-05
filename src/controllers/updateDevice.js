@@ -1,6 +1,5 @@
-const path = require('path');
 const { readFile, writeFile, updateDeviceById } = require('../services');
-const { storePath } = require('../config/config');
+const { storePath } = require('../config');
 
 const updateDevice = async (req, res) => {
   try {

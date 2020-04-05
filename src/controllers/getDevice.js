@@ -1,6 +1,6 @@
 const { readFile, getDeviceById } = require('../services');
 const path = require('path');
-const { storePath } = require('../config/config');
+const { storePath } = require('../config');
 
 const getDevice = async (req, res) => {
   try {

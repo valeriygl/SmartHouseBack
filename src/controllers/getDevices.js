@@ -1,25 +1,23 @@
 const { searchBySubname, readFile, paginate } = require('../services');
-const path = require('path');
-const { storePath } = require('../config/config');
+const { storePath } = require('../config');
 
 const getAllDevices = async (req, res) => {
   try {
-    const page = 1 || req.param.page;
+    //const { page } = req.param;
 
     const store = await readFile(storePath);
 
-    const subname = req.query.subname;
+    const { subname, type, page } = req.query;
 
     let paginationData = {};
     let { devices } = JSON.parse(store);
 
     if (subname) {
-      const searchResult = searchBySubname(devices, subname);
-
-      paginationData = paginate(searchResult, page);
-    } else {
-      paginationData = paginate(devices, page);
+      devices = searchBySubname(devices, subname);
     }
+    if (type) {
+    }
+    paginationData = paginate(devices, page);
     res.json(paginationData);
   } catch (err) {
     console.error(err);
