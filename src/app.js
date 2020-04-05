@@ -1,15 +1,14 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const logger = require('morgan');
 const errorHandler = require('errorhandler');
-const router = require('./routes/router')
+const { port } = require('./config/config');
+const { devicesRouter } = require('./routes');
 const app = express();
 
 app.use(logger('dev'));
 app.use(errorHandler());
-app.use('/', router);
+app.use('/', devicesRouter);
 
-
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Server spinning on port 3000');
 });
