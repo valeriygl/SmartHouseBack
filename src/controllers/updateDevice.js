@@ -1,9 +1,8 @@
 const path = require('path');
 const { readFile, writeFile, updateDeviceById } = require('../services');
+const { storePath } = require('../config/config');
 
 const updateDevice = async (req, res) => {
-  const storePath = path.join(__dirname, '..', 'db', 'devices.json');
-
   try {
     const store = await readFile(storePath);
 
