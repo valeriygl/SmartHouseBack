@@ -2,7 +2,7 @@ const {
   searchBySubname,
   readFile,
   paginate,
-  searchByType,
+  filterByType,
 } = require('../services');
 const { storePath } = require('../config');
 
@@ -19,10 +19,13 @@ const getAllDevices = async (req, res) => {
     if (subname) {
       devices = searchBySubname(devices, subname);
     }
+
     if (type) {
-      devices = searchByType(devices, type);
+      devices = filterByType(devices, type);
     }
+
     devices = paginate(devices, page);
+
     res.json(devices);
   } catch (err) {
     console.error(err);

@@ -18,8 +18,8 @@ devicesRouter.use(errorHandler());
 //devicesRouter.use('/api/homes/:homeid', isHomeExist);
 devicesRouter.post('/api/homes/:homeid/devices', jsonParser, postDevice);
 devicesRouter.get('/api/homes/:homeid/devices', getAllDevices);
-devicesRouter.get('/api/homes/1/devices/:id', getDevice);
-devicesRouter.delete('/api/homes/1/devices/:id', deleteDevice);
-devicesRouter.put('/api/homes/1/devices/:id', jsonParser, updateDevice);
+devicesRouter.get('/api/homes/:homeid/devices/:id', getDevice);
+devicesRouter.delete('/api/homes/:homeid/devices/:id', deleteDevice);
+devicesRouter.put('/api/homes/:homeid/devices/:id', jsonParser, updateDevice);
 
 module.exports = devicesRouter;
