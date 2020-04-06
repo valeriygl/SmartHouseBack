@@ -14,9 +14,9 @@ const paginate = (devices, reqPage = 1, perPage = 8) => {
 
   const lastInd = expLastInd > lastDeviceInd ? lastDeviceInd : expLastInd;
 
-  const requiredDevices = devices.slice(firstInd, lastInd + 1);
+  const data = devices.slice(firstInd, lastInd + 1);
 
-  return { requiredDevices, totalPages };
+  return { data, totalPages, page, perPage };
 };
 
 module.exports = paginate;
