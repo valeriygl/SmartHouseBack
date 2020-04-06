@@ -11,6 +11,7 @@ const isHomeExist = async (req, res, next) => {
   const isExist = homes.find(home => home.id === id);
 
   if (isExist) {
+    req.locals = { homes };
     next();
   } else {
     res.sendStatus(404);
