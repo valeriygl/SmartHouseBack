@@ -1,5 +1,4 @@
-const { updateDeviceById } = require('../services');
-const { updateHomeInStore } = require('../services/homes');
+const { writeFile, updateItemById } = require('../services');
 const { storePath } = require('../config');
 
 const updateDevice = async (req, res) => {
@@ -16,7 +15,7 @@ const updateDevice = async (req, res) => {
 
     const newDevice = req.body;
 
-    const { updatedDevices, wasUpdated } = updateDeviceById(
+    const { updatedItems: updatedDevices, wasUpdated } = updateItemById(
       devices,
       id,
       newDevice
@@ -32,7 +31,13 @@ const updateDevice = async (req, res) => {
       devices: updatedDevices,
     };
 
-    await updateHomeInStore(storePath, homes, newHome);
+    const { updatedItems: updatedHomes } = updateItemById(
+      homes,
+      homeid,
+      newHome
+    );
+
+    await writeFile(storePath, JSON.stringify(updatedHomes));
 
     res.sendStatus(200);
   } catch (error) {
