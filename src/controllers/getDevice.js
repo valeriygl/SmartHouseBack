@@ -1,14 +1,10 @@
-const { readFile, getDeviceById } = require('../services');
-const path = require('path');
-const { storePath } = require('../config');
+const { getDeviceById } = require('../services');
 
 const getDevice = async (req, res) => {
   try {
     const id = Number(req.params.id);
 
-    const store = await readFile(storePath);
-
-    const { devices } = JSON.parse(store);
+    let { devices } = req.locals.homes[req.params.homeid - 1];
 
     const device = getDeviceById(id, devices);
 

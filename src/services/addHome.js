@@ -1,9 +1,9 @@
 const writeFile = require('./writeFile');
 const { storePath } = require('../config');
 
-const addDevice = async (device, house, index) => {
+const addHome = async (device, house) => {
   try {
-    house[index - 1].devices.push(device);
+    house.push(device);
 
     const postedDevices = JSON.stringify(house);
 
@@ -13,4 +13,4 @@ const addDevice = async (device, house, index) => {
   }
 };
 
-module.exports = addDevice;
+module.exports = addHome;

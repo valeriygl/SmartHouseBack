@@ -1,15 +1,17 @@
 const getNextId = require('../helpers');
 const path = require('path');
 const { addDevice } = require('../services');
-const { storePath, idPath } = require('../config');
+const { idDevicePath } = require('../config');
 
 const postDevice = async (req, res) => {
   try {
-    const id = await getNextId(idPath);
+    const id = await getNextId(idDevicePath);
 
-    const newDevice = { id: id.toString(), ...req.body };
+    const newDevice = { id: Number(id), ...req.body };
 
-    await addDevice(newDevice, storePath);
+    let homes = req.locals.homes;
+
+    await addDevice(newDevice, homes, Number(req.params.homeid));
     res.json(newDevice);
     res.end();
   } catch (error) {
