@@ -15,11 +15,11 @@ const devicesRouter = app.Router();
 const jsonParser = bodyParser.json();
 
 devicesRouter.use(errorHandler());
-devicesRouter.use('/api/homes/:homeid/devices', isHomeExist);
-devicesRouter.post('/api/homes/:homeid/devices', jsonParser, postDevice);
-devicesRouter.get('/api/homes/:homeid/devices', getAllDevices);
-devicesRouter.get('/api/homes/:homeid/devices/:id', getDevice);
-devicesRouter.delete('/api/homes/:homeid/devices/:id', deleteDevice);
-devicesRouter.put('/api/homes/:homeid/devices/:id', jsonParser, updateDevice);
+devicesRouter.use('/:homeid/devices', isHomeExist);
+devicesRouter.post('/:homeid/devices', jsonParser, postDevice);
+devicesRouter.get('/:homeid/devices', getAllDevices);
+devicesRouter.get('/:homeid/devices/:id', getDevice);
+devicesRouter.delete('/:homeid/devices/:id', deleteDevice);
+devicesRouter.put('/:homeid/devices/:id', jsonParser, updateDevice);
 
 module.exports = devicesRouter;

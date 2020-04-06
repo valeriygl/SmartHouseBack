@@ -9,7 +9,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(errorHandler());
 app.use('/api/homes', homesRouter);
-app.use('/api/homes/:homeid/devices', devicesRouter);
+app.use('/api/homes', devicesRouter);
 
 app.listen(port, () => {
   console.log('Server spinning on port 3000');

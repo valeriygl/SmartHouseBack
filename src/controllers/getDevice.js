@@ -1,4 +1,4 @@
-const { getDeviceById } = require('../services');
+const { getItemById } = require('../services');
 
 const getDevice = async (req, res) => {
   try {
@@ -6,7 +6,7 @@ const getDevice = async (req, res) => {
 
     let { devices } = req.locals.homes[req.params.homeid - 1];
 
-    const device = getDeviceById(id, devices);
+    const device = getItemById(id, devices);
 
     if (device) {
       res.json(device);
