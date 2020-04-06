@@ -14,9 +14,9 @@ const homesRouter = app.Router();
 const jsonParser = bodyParser.json();
 
 homesRouter.use(errorHandler());
-homesRouter.post('/api/homes', jsonParser, postHome);
+homesRouter.post('/', jsonParser, postHome);
 homesRouter.get('/api/homes', getAllDevices);
-homesRouter.get('/api/homes/:homeid', getHome);
+homesRouter.get('/:homeid', getHome);
 homesRouter.delete('/api/homes/:homeid', deleteDevice);
 homesRouter.put('/api/homes/:homeid', jsonParser, updateDevice);
 

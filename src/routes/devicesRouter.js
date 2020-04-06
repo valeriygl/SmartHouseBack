@@ -15,7 +15,7 @@ const devicesRouter = app.Router();
 const jsonParser = bodyParser.json();
 
 devicesRouter.use(errorHandler());
-devicesRouter.use('/api/homes/:homeid', isHomeExist);
+devicesRouter.use('/api/homes/:homeid/devices', isHomeExist);
 devicesRouter.post('/api/homes/:homeid/devices', jsonParser, postDevice);
 devicesRouter.get('/api/homes/:homeid/devices', getAllDevices);
 devicesRouter.get('/api/homes/:homeid/devices/:id', getDevice);
