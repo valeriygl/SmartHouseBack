@@ -9,10 +9,11 @@ const homesRouter = app.Router();
 const jsonParser = bodyParser.json();
 
 homesRouter.use(errorHandler());
-homesRouter.post('/api/homes', jsonParser, postHome);
-homesRouter.get('/api/homes', getAllHomes);
-homesRouter.get('/api/homes/:homeid', getHome);
-homesRouter.delete('/api/homes/:homeid', deleteHome);
-homesRouter.put('/api/homes/:homeid', jsonParser, updateHome);
+
+homesRouter.post('/', jsonParser, postHome);
+homesRouter.get('/', getAllHomes);
+homesRouter.get('/:homeid', getHome);
+homesRouter.delete('/:homeid', deleteHome);
+homesRouter.put('/:homeid', jsonParser, updateHome);
 
 module.exports = homesRouter;
