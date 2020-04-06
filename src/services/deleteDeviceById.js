@@ -1,7 +1,19 @@
 const deleteDeviceById = (devices, id) => {
-  const updatedDevices = devices.filter(device => device.id !== id);
+  let wasUpdated = false;
 
-  return updatedDevices;
+  const updatedDevices = devices.filter(device => {
+    if (device.id === id) {
+      wasUpdated = true;
+
+      return false;
+    } else {
+      return true;
+    }
+  });
+
+  const response = { updatedDevices, wasUpdated };
+
+  return response;
 };
 
 module.exports = deleteDeviceById;

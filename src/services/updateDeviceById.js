@@ -1,9 +1,22 @@
 const updateDeviceById = (devices, id, newDevice) => {
-  const updatedDevices = devices.map(device =>
-    device.id === id ? { ...newDevice, id } : device
-  );
+  let wasUpdated = false;
 
-  return updatedDevices;
+  const updatedDevices = devices.map(device => {
+    if (device.id === id) {
+      wasUpdated = true;
+
+      return { ...newDevice, id };
+    } else {
+      return device;
+    }
+  });
+
+  const response = {
+    updatedDevices,
+    wasUpdated,
+  };
+
+  return response;
 };
 
 module.exports = updateDeviceById;
