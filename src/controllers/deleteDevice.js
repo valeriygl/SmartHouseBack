@@ -5,9 +5,9 @@ const deleteDevice = async (req, res) => {
   try {
     const store = await readFile(storePath);
 
-    const { devices } = JSON.parse(store);
+    const devices = JSON.parse(store);
 
-    const id = Number(req.params.id);
+    const { id, homeid } = Number(req.params);
 
     const updatedDevices = deleteDeviceById(devices, id);
 

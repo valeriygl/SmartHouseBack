@@ -1,4 +1,3 @@
-const fs = require('fs');
 const readFile = require('./readFile');
 const writeFile = require('./writeFile');
 
