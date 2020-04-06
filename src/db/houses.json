@@ -24,15 +24,76 @@
         }
       },
       {
-        "name": "hello",
+        "name": "third",
         "state": false,
         "range": {
           "min": 1,
           "max": 5,
           "value": 4
         },
-        "id": 3
+        "id": "3"
+      },
+      {
+        "id": "4",
+        "name": "fourth",
+        "state": true,
+        "range": {
+          "min": 1,
+          "max": 10,
+          "value": 5
+        }
+      },
+      {
+        "id": "14",
+        "name": "fourth",
+        "state": true,
+        "range": {
+          "min": 1,
+          "max": 10,
+          "value": 5
+        }
+      },
+      {
+        "id": "15",
+        "name": "fourth",
+        "state": true,
+        "range": {
+          "min": 1,
+          "max": 10,
+          "value": 5
+        }
+      },
+      {
+        "id": "16",
+        "name": "fourth",
+        "state": true,
+        "range": {
+          "min": 1,
+          "max": 10,
+          "value": 5
+        }
       }
     ]
+  },
+  {
+    "id": 2,
+    "name": "second",
+    "devices": [
+      {
+        "id": 22,
+        "name": "first",
+        "state": true,
+        "range": {
+          "min": 1,
+          "max": 10,
+          "value": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "third",
+    "devices": []
   }
 ]

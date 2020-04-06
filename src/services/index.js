@@ -7,6 +7,8 @@ const updateDeviceById = require('./updateDeviceById');
 const searchBySubname = require('./searchBySubname');
 const paginate = require('./paginate');
 const filterByType = require('./filterByType');
+const addHome = require('./addHome');
+const getHomeById = require('./getHomeById');
 
 module.exports = {
   readFile,
@@ -18,4 +20,6 @@ module.exports = {
   searchBySubname,
   paginate,
   filterByType,
+  addHome,
+  getHomeById,
 };
