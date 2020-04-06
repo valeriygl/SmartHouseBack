@@ -1,5 +1,4 @@
-const { deleteDeviceById } = require('../services');
-const { updateHomeInStore } = require('../services/homes');
+const { writeFile, deleteItemById, updateItemById } = require('../services');
 const { storePath } = require('../config');
 
 const deleteDevice = async (req, res) => {
@@ -14,7 +13,10 @@ const deleteDevice = async (req, res) => {
 
     const id = Number(req.params.id);
 
-    const { updatedDevices, wasUpdated } = deleteDeviceById(devices, id);
+    const { updatedItems: updatedDevices, wasUpdated } = deleteItemById(
+      devices,
+      id
+    );
 
     if (!wasUpdated) {
       return res.sendStatus(404);
@@ -26,7 +28,13 @@ const deleteDevice = async (req, res) => {
       devices: updatedDevices,
     };
 
-    await updateHomeInStore(storePath, homes, newHome);
+    const { updatedItems: updatedHomes } = updateItemById(
+      homes,
+      homeid,
+      newHome
+    );
+
+    await writeFile(storePath, JSON.stringify(updatedHomes));
 
     res.sendStatus(200);
   } catch (error) {
