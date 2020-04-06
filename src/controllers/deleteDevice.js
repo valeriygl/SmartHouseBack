@@ -1,20 +1,40 @@
-const path = require('path');
-const { readFile, writeFile, deleteDeviceById } = require('../services');
-const { storePath } = require('../config/config');
+const { writeFile, deleteItemById, updateItemById } = require('../services');
+const { storePath } = require('../config');
 
 const deleteDevice = async (req, res) => {
   try {
-    const store = await readFile(storePath);
+    const { homes } = req.locals;
 
-    const { devices } = JSON.parse(store);
+    const homeid = Number(req.params.homeid);
+
+    const targetHome = homes.find(home => home.id === homeid);
+
+    const { devices } = targetHome;
 
     const id = Number(req.params.id);
 
-    const updatedDevices = deleteDeviceById(devices, id);
+    const { updatedItems: updatedDevices, wasUpdated } = deleteItemById(
+      devices,
+      id
+    );
 
-    const updatedStore = JSON.stringify({ devices: updatedDevices });
+    if (!wasUpdated) {
+      return res.sendStatus(404);
+    }
 
-    await writeFile(storePath, updatedStore);
+    const newHome = {
+      id: homeid,
+      name: targetHome.name,
+      devices: updatedDevices,
+    };
+
+    const { updatedItems: updatedHomes } = updateItemById(
+      homes,
+      homeid,
+      newHome
+    );
+
+    await writeFile(storePath, JSON.stringify(updatedHomes));
 
     res.sendStatus(200);
   } catch (error) {
