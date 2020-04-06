@@ -4,6 +4,8 @@ const updateDevice = require('./updateDevice');
 const getDevice = require('./getDevice');
 const getAllDevices = require('./getDevices');
 const isHomeExist = require('./isHomeExist');
+const postHome = require('./postHome');
+const getHome = require('./getHome');
 
 module.exports = {
   deleteDevice,
@@ -12,4 +14,6 @@ module.exports = {
   updateDevice,
   getAllDevices,
   isHomeExist,
+  postHome,
+  getHome,
 };
