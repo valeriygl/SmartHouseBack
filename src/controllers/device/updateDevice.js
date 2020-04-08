@@ -1,7 +1,7 @@
-const { writeFile, deleteItemById, updateItemById } = require('../services');
-const { storePath } = require('../config');
+const { writeFile, updateItemById } = require('../../services');
+const { storePath } = require('../../config');
 
-const deleteDevice = async (req, res) => {
+const updateDevice = async (req, res) => {
   try {
     const { homes } = req.locals;
 
@@ -13,9 +13,12 @@ const deleteDevice = async (req, res) => {
 
     const id = Number(req.params.id);
 
-    const { updatedItems: updatedDevices, wasUpdated } = deleteItemById(
+    const newDevice = req.body;
+
+    const { updatedItems: updatedDevices, wasUpdated } = updateItemById(
       devices,
-      id
+      id,
+      newDevice
     );
 
     if (!wasUpdated) {
@@ -44,4 +47,4 @@ const deleteDevice = async (req, res) => {
   }
 };
 
-module.exports = deleteDevice;
+module.exports = updateDevice;

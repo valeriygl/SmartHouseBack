@@ -1,9 +1,15 @@
 const app = require('express');
 const bodyParser = require('body-parser');
 const errorHandler = require('errorhandler');
-const { postHome, getHome, validationMiddleware } = require('../controllers');
-const { validationSchema } = require('../services');
-const { updateHome, deleteHome, getAllHomes } = require('../controllers/home');
+const validationSchema = require('../helpers/schemas');
+const { validationMiddleware } = require('../middlewares');
+const {
+  updateHome,
+  deleteHome,
+  getAllHomes,
+  postHome,
+  getHome,
+} = require('../controllers/home');
 
 const homesRouter = app.Router();
 
@@ -14,7 +20,7 @@ homesRouter.use(errorHandler());
 homesRouter.post(
   '/',
   jsonParser,
-  validationMiddleware(validationSchema.homePOST),
+  validationMiddleware(validationSchema.homePOST, 'body'),
   postHome
 );
 homesRouter.get('/', getAllHomes);
@@ -23,7 +29,7 @@ homesRouter.delete('/:homeid', deleteHome);
 homesRouter.put(
   '/:homeid',
   jsonParser,
-  validationMiddleware(validationSchema.homePUT),
+  validationMiddleware(validationSchema.homePUT, 'body'),
   updateHome
 );
 

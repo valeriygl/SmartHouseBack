@@ -1,10 +1,12 @@
-const { getItemById } = require('../services');
+const { getItemById } = require('../../services');
 
 const getDevice = async (req, res) => {
   try {
     const id = Number(req.params.id);
 
-    let { devices } = req.locals.homes[req.params.homeid - 1];
+    const homeid = Number(req.params.homeid);
+
+    const { devices } = getItemById(homeid, req.locals.homes);
 
     const device = getItemById(id, devices);
 

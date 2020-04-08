@@ -2,6 +2,83 @@
   {
     "id": 1,
     "name": "king",
-    "devices": []
+    "devices": [
+      {
+        "id": 6,
+        "type": "RobotHoover",
+        "name": "NEW NEW",
+        "image": "src/image.png",
+        "status": false,
+        "modes": [],
+        "currentMode": "jb",
+        "temp": { "min": 1, "max": 10, "current": 7, "step": 2 }
+      },
+      {
+        "id": 7,
+        "type": "oven",
+        "name": "NEW 1",
+        "image": "src/image.png",
+        "status": false,
+        "modes": [],
+        "currentMode": "jb",
+        "temp": { "min": 1, "max": 10, "current": 7, "step": 2 }
+      },
+      {
+        "id": 8,
+        "type": "oven",
+        "name": "NEW 2",
+        "image": "src/image.png",
+        "status": false,
+        "modes": [],
+        "currentMode": "jb",
+        "temp": { "min": 1, "max": 10, "current": 7, "step": 2 }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "cool-house",
+    "devices": [
+      {
+        "id": 9,
+        "type": "oven",
+        "name": "NEW 2",
+        "image": "src/image.png",
+        "status": false,
+        "modes": [],
+        "currentMode": "jb",
+        "temp": { "min": 1, "max": 10, "current": 7, "step": 2 }
+      },
+      {
+        "id": 10,
+        "type": "oven",
+        "name": "NEW 44",
+        "image": "src/image.png",
+        "status": false,
+        "modes": [],
+        "currentMode": "jb",
+        "temp": { "min": 1, "max": 10, "current": 7, "step": 2 }
+      },
+      {
+        "id": 11,
+        "type": "robotHoover",
+        "name": "dsadsaasd",
+        "image": "src/image.png",
+        "status": false,
+        "modes": [],
+        "currentMode": "jb",
+        "temp": { "min": 1, "max": 10, "current": 7, "step": 2 }
+      },
+      {
+        "id": 12,
+        "type": "oven",
+        "name": "dsadsaasd",
+        "image": "src/image.png",
+        "status": false,
+        "modes": [],
+        "currentMode": "jb",
+        "temp": { "min": 1, "max": 10, "current": 7, "step": 2 }
+      }
+    ]
   }
 ]

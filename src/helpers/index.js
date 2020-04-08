@@ -1,3 +1,3 @@
-const getNextId = require('./helpers');
+const getNextId = require('./getNextId');
 
-module.exports = getNextId;
+module.exports = { getNextId };

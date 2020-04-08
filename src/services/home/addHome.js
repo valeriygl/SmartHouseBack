@@ -1,5 +1,5 @@
-const writeFile = require('./writeFile');
-const { storePath } = require('../config');
+const writeFile = require('../writeFile');
+const { storePath } = require('../../config');
 
 const addHome = async (device, house) => {
   try {
