@@ -6,6 +6,7 @@ const getAllDevices = require('./getDevices');
 const isHomeExist = require('./isHomeExist');
 const postHome = require('./postHome');
 const getHome = require('./getHome');
+const validationMiddleware = require('./validationMiddleware');
 
 module.exports = {
   deleteDevice,
@@ -16,4 +17,5 @@ module.exports = {
   isHomeExist,
   postHome,
   getHome,
+  validationMiddleware,
 };
