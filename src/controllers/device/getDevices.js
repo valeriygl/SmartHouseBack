@@ -1,10 +1,17 @@
-const { searchBySubname, paginate, filterByType } = require('../services');
+const {
+  searchBySubname,
+  paginate,
+  filterByType,
+  getItemById,
+} = require('../../services');
 
 const getAllDevices = async (req, res) => {
   try {
-    const { subname, type, page } = req.query;
+    const { subname, type, page, perPage } = req.query;
 
-    let { devices } = req.locals.homes[req.params.homeid - 1];
+    const id = Number(req.params.homeid);
+
+    let { devices } = getItemById(id, req.locals.homes);
 
     if (subname) {
       devices = searchBySubname(devices, subname);
@@ -14,7 +21,7 @@ const getAllDevices = async (req, res) => {
       devices = filterByType(devices, type);
     }
 
-    devices = paginate(devices, page);
+    devices = paginate(devices, page, perPage);
 
     res.json(devices);
   } catch (err) {

@@ -1,5 +1,4 @@
-const getNextId = require('../helpers');
-const path = require('path');
+const { getNextId } = require('../helpers');
 const { addDevice } = require('../services');
 const { idDevicePath } = require('../config');
 
@@ -9,7 +8,7 @@ const postDevice = async (req, res) => {
 
     const newDevice = { id: Number(id), ...req.body };
 
-    let homes = req.locals.homes;
+    const homes = req.locals.homes;
 
     await addDevice(newDevice, homes, Number(req.params.homeid));
     res.json(newDevice);

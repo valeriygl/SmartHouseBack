@@ -1,4 +1,4 @@
-const getNextId = require('../helpers');
+const { getNextId } = require('../helpers');
 const { addHome } = require('../services');
 const { readFile } = require('../services');
 const { storePath, idHomePath } = require('../config');
