@@ -14,5 +14,5 @@ app.use('/api/homes', homesRouter);
 app.use('/api/homes', devicesRouter);
 
 app.listen(port, () => {
-  console.log('Server spinning on port 3000');
+  console.log(`Server spinning on port ${port}`);
 });

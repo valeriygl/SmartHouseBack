@@ -1,5 +1,5 @@
-const { writeFile, deleteItemById, updateItemById } = require('../services');
-const { storePath } = require('../config');
+const { writeFile, deleteItemById, updateItemById } = require('../../services');
+const { storePath } = require('../../config');
 
 const deleteDevice = async (req, res) => {
   try {

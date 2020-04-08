@@ -1,9 +1,5 @@
-const {
-  searchBySubname,
-  paginate,
-  filterByType,
-  getItemById,
-} = require('../../services');
+const { paginate, getItemById } = require('../../services');
+const { searchBySubname, filterByType } = require('../../services/device');
 
 const getAllDevices = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-const { getItemById } = require('../services');
+const { getItemById } = require('../../services');
 
 const getDevice = async (req, res) => {
   try {

@@ -1,10 +1,15 @@
 const app = require('express');
 const bodyParser = require('body-parser');
 const errorHandler = require('errorhandler');
-const { postHome, getHome } = require('../controllers');
 const validationSchema = require('../helpers/schemas');
 const { validationMiddleware } = require('../middlewares');
-const { updateHome, deleteHome, getAllHomes } = require('../controllers/home');
+const {
+  updateHome,
+  deleteHome,
+  getAllHomes,
+  postHome,
+  getHome,
+} = require('../controllers/home');
 
 const homesRouter = app.Router();
 

@@ -1,5 +1,5 @@
-const { getItemById, readFile } = require('../services');
-const { storePath } = require('../config');
+const { getItemById, readFile } = require('../../services');
+const { storePath } = require('../../config');
 
 const getHome = async (req, res) => {
   try {

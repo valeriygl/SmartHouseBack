@@ -8,8 +8,8 @@ const {
   getDevice,
   updateDevice,
   deleteDevice,
-  getAllDevices,
-} = require('../controllers');
+  getDevices,
+} = require('../controllers/device');
 
 const devicesRouter = app.Router();
 
@@ -26,7 +26,7 @@ devicesRouter.post(
 devicesRouter.get(
   '/:homeid/devices',
   validationMiddleware(validationSchema.query, 'query'),
-  getAllDevices
+  getDevices
 );
 devicesRouter.get('/:homeid/devices/:id', getDevice);
 devicesRouter.delete('/:homeid/devices/:id', deleteDevice);
