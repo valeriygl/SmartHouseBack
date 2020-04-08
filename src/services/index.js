@@ -8,6 +8,7 @@ const paginate = require('./paginate');
 const filterByType = require('./filterByType');
 const addHome = require('./addHome');
 const getItemById = require('./getItemById');
+const validationSchema = require('./validationSchema');
 
 module.exports = {
   readFile,
@@ -20,4 +21,5 @@ module.exports = {
   filterByType,
   addHome,
   getItemById,
+  validationSchema,
 };
