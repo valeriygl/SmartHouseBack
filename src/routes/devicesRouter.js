@@ -16,7 +16,9 @@ const devicesRouter = app.Router();
 const jsonParser = bodyParser.json();
 
 devicesRouter.use(errorHandler());
+
 devicesRouter.use('/:homeid/devices', isHomeExist);
+
 devicesRouter.post(
   '/:homeid/devices',
   jsonParser,
@@ -28,8 +30,11 @@ devicesRouter.get(
   validationMiddleware(validationSchema.query, 'query'),
   getDevices
 );
+
 devicesRouter.get('/:homeid/devices/:id', getDevice);
+
 devicesRouter.delete('/:homeid/devices/:id', deleteDevice);
+
 devicesRouter.put(
   '/:homeid/devices/:id',
   jsonParser,

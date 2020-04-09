@@ -11,6 +11,7 @@ const postDevice = async (req, res) => {
     const homes = req.locals.homes;
 
     await addDevice(newDevice, homes, Number(req.params.homeid));
+
     res.json(newDevice);
     res.end();
   } catch (error) {

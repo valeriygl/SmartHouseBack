@@ -12,7 +12,9 @@ const postHome = async (req, res) => {
     let homes = await readFile(storePath);
 
     homes = JSON.parse(homes);
+
     await addHome(newHouse, homes);
+
     res.json(newHouse);
     res.end();
   } catch (error) {
