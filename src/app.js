@@ -17,3 +17,5 @@ app.use('/api/homes', devicesRouter);
 app.listen(port, () => {
   console.log(`Server spinning on port ${port}`);
 });
+
+module.exports = app;
