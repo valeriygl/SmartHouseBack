@@ -1,9 +1,8 @@
 const { readFile, writeFile, updateItemById } = require('../../services');
-const { storePath } = require('../../config');
 
 const updateHome = async (req, res) => {
   try {
-    const homes = await readFile(storePath);
+    const homes = await readFile();
 
     const parsedHomes = JSON.parse(homes);
 
@@ -23,7 +22,7 @@ const updateHome = async (req, res) => {
       return;
     }
 
-    await writeFile(storePath, JSON.stringify(updatedHomes));
+    await writeFile(JSON.stringify(updatedHomes));
 
     res.sendStatus(200);
   } catch (error) {

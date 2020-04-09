@@ -1,27 +1,19 @@
-const {
-  writeFile,
-  deleteItemById,
-  updateItemById,
-  getItemById,
-} = require('../../services');
-const { storePath } = require('../../config');
+const services = require('../../services');
 
 const deleteDevice = async (req, res) => {
   try {
-    const { homes } = req.locals;
+    const { homes, homeid } = req.locals;
 
-    const homeid = Number(req.params.homeid);
-
-    const targetHome = getItemById(homeid, homes);
+    const targetHome = services.getItemById(homeid, homes);
 
     const { devices } = targetHome;
 
     const id = Number(req.params.id);
 
-    const { updatedItems: updatedDevices, wasUpdated } = deleteItemById(
-      devices,
-      id
-    );
+    const {
+      updatedItems: updatedDevices,
+      wasUpdated,
+    } = services.deleteItemById(devices, id);
 
     if (!wasUpdated) {
       res.sendStatus(404);
@@ -35,13 +27,13 @@ const deleteDevice = async (req, res) => {
       devices: updatedDevices,
     };
 
-    const { updatedItems: updatedHomes } = updateItemById(
+    const { updatedItems: updatedHomes } = services.updateItemById(
       homes,
       homeid,
       newHome
     );
 
-    await writeFile(storePath, JSON.stringify(updatedHomes));
+    await services.writeFile(JSON.stringify(updatedHomes));
 
     res.sendStatus(200);
   } catch (error) {

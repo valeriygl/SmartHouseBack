@@ -1,7 +1,8 @@
 const Joi = require('joi');
+
+const oven = require('./oven');
 const query = require('./query');
 const robotHoover = require('./robotHoover');
-const oven = require('./oven');
 
 const validationSchema = {
   homePOST: Joi.object().keys({

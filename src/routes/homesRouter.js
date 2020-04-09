@@ -1,37 +1,20 @@
 const app = require('express');
-const bodyParser = require('body-parser');
-const errorHandler = require('errorhandler');
+
+const home = require('../controllers/home');
 const validationSchema = require('../helpers/schemas');
 const { validationMiddleware } = require('../middlewares');
-const {
-  updateHome,
-  deleteHome,
-  getAllHomes,
-  postHome,
-  getHome,
-} = require('../controllers/home');
 
 const homesRouter = app.Router();
 
-const jsonParser = bodyParser.json();
+homesRouter
+  .route('/')
+  .post(validationMiddleware(validationSchema.homePOST, 'body'), home.postHome)
+  .get(home.getAllHomes);
 
-homesRouter.use(errorHandler());
-
-homesRouter.post(
-  '/',
-  jsonParser,
-  validationMiddleware(validationSchema.homePOST, 'body'),
-  postHome
-);
-homesRouter.get('/', getAllHomes);
-
-homesRouter.get('/:homeid', getHome);
-homesRouter.delete('/:homeid', deleteHome);
-homesRouter.put(
-  '/:homeid',
-  jsonParser,
-  validationMiddleware(validationSchema.homePUT, 'body'),
-  updateHome
-);
+homesRouter
+  .route('/:homeid')
+  .get(home.getHome)
+  .delete(home.deleteHome)
+  .put(validationMiddleware(validationSchema.homePUT, 'body'), home.updateHome);
 
 module.exports = homesRouter;

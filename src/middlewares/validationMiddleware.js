@@ -16,4 +16,5 @@ const validationMiddleware = (schema, property) => {
     }
   };
 };
+
 module.exports = validationMiddleware;
