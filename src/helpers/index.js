@@ -1,3 +1,4 @@
 const getNextId = require('./getNextId');
+const getDefaultPagParams = require('./getDefaultPagParams');
 
-module.exports = { getNextId };
+module.exports = { getNextId, getDefaultPagParams };

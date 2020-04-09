@@ -15,7 +15,9 @@ const deleteHome = async (req, res) => {
     );
 
     if (!wasUpdated) {
-      return res.sendStatus(404);
+      res.sendStatus(404);
+
+      return;
     }
 
     await writeFile(storePath, JSON.stringify(updatedHomes));

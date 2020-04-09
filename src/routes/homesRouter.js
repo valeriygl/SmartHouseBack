@@ -24,6 +24,7 @@ homesRouter.post(
   postHome
 );
 homesRouter.get('/', getAllHomes);
+
 homesRouter.get('/:homeid', getHome);
 homesRouter.delete('/:homeid', deleteHome);
 homesRouter.put(

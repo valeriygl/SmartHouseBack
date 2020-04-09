@@ -10,6 +10,7 @@ const app = express();
 app.use(cors());
 app.use(logger('dev'));
 app.use(errorHandler());
+
 app.use('/api/homes', homesRouter);
 app.use('/api/homes', devicesRouter);
 
