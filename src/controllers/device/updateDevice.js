@@ -1,10 +1,7 @@
 const { writeFile, updateItemById, getItemById } = require('../../services');
-const { storePath } = require('../../config');
 
 const updateDevice = async (req, res) => {
-  const { homes } = req.locals;
-
-  const homeid = Number(req.params.homeid);
+  const { homes, homeid } = req.locals;
 
   const targetHome = getItemById(homeid, homes);
 
@@ -35,7 +32,7 @@ const updateDevice = async (req, res) => {
   const { updatedItems: updatedHomes } = updateItemById(homes, homeid, newHome);
 
   try {
-    await writeFile(storePath, JSON.stringify(updatedHomes));
+    await writeFile(JSON.stringify(updatedHomes));
 
     res.sendStatus(200);
   } catch (error) {

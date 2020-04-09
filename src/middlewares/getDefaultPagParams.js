@@ -1,5 +1,7 @@
-const getDefaulPagPamas = (page, perPage) => {
+const getDefaulPagPamas = (req, res, next) => {
   const params = { page: 1, perPage: 8 };
+
+  const { page, perPage } = req.query;
 
   if (page) {
     params.page = Number(page);
@@ -9,7 +11,10 @@ const getDefaulPagPamas = (page, perPage) => {
     params.perPage = Number(perPage);
   }
 
-  return params;
+  req.query.page = params.page;
+  req.query.perPage = params.perPage;
+
+  next();
 };
 
 module.exports = getDefaulPagPamas;

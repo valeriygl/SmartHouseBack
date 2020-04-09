@@ -1,13 +1,10 @@
 const { paginate, getItemById } = require('../../services');
 const { searchBySubname, filterByType } = require('../../services/device');
-const { getDefaultPagParams } = require('../../helpers');
 
 const getAllDevices = async (req, res) => {
   const { subname, type, page, perPage } = req.query;
 
-  const id = Number(req.params.homeid);
-
-  let { devices } = getItemById(id, req.locals.homes);
+  let { devices } = getItemById(req.locals.homeid, req.locals.homes);
 
   if (subname) {
     devices = searchBySubname(devices, subname);
@@ -17,9 +14,7 @@ const getAllDevices = async (req, res) => {
     devices = filterByType(devices, type);
   }
 
-  const pagParams = getDefaultPagParams(page, perPage);
-
-  devices = paginate(devices, pagParams.page, pagParams.perPage);
+  devices = paginate(devices, page, perPage);
 
   res.json(devices);
 };

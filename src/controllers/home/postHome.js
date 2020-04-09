@@ -1,7 +1,7 @@
+const { idHomePath } = require('../../config');
 const { getNextId } = require('../../helpers');
-const { addHome } = require('../../services/home');
 const { readFile } = require('../../services');
-const { storePath, idHomePath } = require('../../config');
+const { addHome } = require('../../services/home');
 
 const postHome = async (req, res) => {
   try {
@@ -9,7 +9,7 @@ const postHome = async (req, res) => {
 
     const newHouse = { id: Number(id), ...req.body };
 
-    let homes = await readFile(storePath);
+    let homes = await readFile();
 
     homes = JSON.parse(homes);
 

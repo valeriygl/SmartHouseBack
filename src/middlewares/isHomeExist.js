@@ -1,5 +1,4 @@
 const { readFile, getItemById } = require('../services');
-const { storePath } = require('../config');
 
 const isHomeExist = async (req, res, next) => {
   const id = Number(req.params.homeid);
@@ -7,7 +6,7 @@ const isHomeExist = async (req, res, next) => {
   let homes = [];
 
   try {
-    const store = await readFile(storePath);
+    const store = await readFile();
 
     homes = JSON.parse(store);
   } catch (error) {
@@ -17,7 +16,7 @@ const isHomeExist = async (req, res, next) => {
   const targetHome = getItemById(id, homes);
 
   if (targetHome) {
-    req.locals = { homes };
+    req.locals = { homes, homeid: id };
 
     next();
   } else {
