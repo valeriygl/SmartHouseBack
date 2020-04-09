@@ -1,1 +1,7 @@
-[{"id":1,"name":"hata","devices":[{"id":2,"name":"Oven","status":true,"type":"oven","image":"","temp":{"min":0,"max":0,"current":0,"step":0},"modes":[],"currentMode":""}]},{"id":3,"name":"third","devices":[]}]
+[
+  {
+    "id": 1,
+    "name": "cool house",
+    "devices": []
+  }
+]
