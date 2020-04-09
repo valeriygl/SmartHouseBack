@@ -12,5 +12,8 @@
         "objects": "always-multiline"
       }
     ]
+  },
+  "env": {
+    "jest": true
   }
 }
