@@ -1,6 +1,6 @@
 const path = require('path');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 const storePath = path.join(__dirname, 'db', 'houses.json');
 

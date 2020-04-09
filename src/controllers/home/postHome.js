@@ -1,7 +1,7 @@
-const getNextId = require('../helpers');
-const { addHome } = require('../services');
-const { readFile } = require('../services');
-const { storePath, idHomePath } = require('../config');
+const { getNextId } = require('../../helpers');
+const { addHome } = require('../../services/home');
+const { readFile } = require('../../services');
+const { storePath, idHomePath } = require('../../config');
 
 const postHome = async (req, res) => {
   try {
@@ -12,7 +12,9 @@ const postHome = async (req, res) => {
     let homes = await readFile(storePath);
 
     homes = JSON.parse(homes);
+
     await addHome(newHouse, homes);
+
     res.json(newHouse);
     res.end();
   } catch (error) {

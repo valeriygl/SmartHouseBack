@@ -1,4 +1,4 @@
-const paginate = (devices, reqPage = 1, perPage = 8) => {
+const paginate = (devices, reqPage, perPage) => {
   const devicesLength = devices.length;
 
   const lastDeviceInd = devicesLength - 1;
@@ -7,7 +7,7 @@ const paginate = (devices, reqPage = 1, perPage = 8) => {
 
   const page = reqPage > totalPages ? totalPages : reqPage;
 
-  const expFirstInd = page * perPage - 8;
+  const expFirstInd = page * perPage - perPage;
   const expLastInd = page * perPage - 1;
 
   const firstInd = expFirstInd < 0 ? 0 : expFirstInd;
