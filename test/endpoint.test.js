@@ -1,8 +1,10 @@
 const request = require('supertest');
+
 const app = require('../src/app');
+
 describe('Endpoints', () => {
   it('should respond with 422 status code because validation error', async () => {
-    const res = await request(app).post('/api/homes').send({
+    const res = await request(app).post('/api/v1/homes').send({
       name: 'third',
       devices: [],
       sad: 'sd',
@@ -10,7 +12,7 @@ describe('Endpoints', () => {
     expect(res.statusCode).toEqual(422);
   });
   it('should create a new post', async () => {
-    const res = await request(app).post('/api/homes').send({
+    const res = await request(app).post('/api/v1/homes').send({
       name: 'third',
       devices: [],
     });
@@ -18,35 +20,35 @@ describe('Endpoints', () => {
     expect(res.body).toHaveProperty('id');
   });
   it('should get 1 item', async () => {
-    const res = await request(app).get('/api/homes/2');
+    const res = await request(app).get('/api/v1/homes/2');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('id');
   });
   it('should get all items', async () => {
-    const res = await request(app).get('/api/homes');
+    const res = await request(app).get('/api/v1/homes');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveLength(2);
   });
   it('should update a item', async () => {
-    const res = await request(app).put('/api/homes/2').send({
+    const res = await request(app).put('/api/v1/homes/2').send({
       name: 'good',
     });
 
     expect(res.statusCode).toEqual(200);
   });
   it('should delete a post', async () => {
-    const res = await request(app).delete('/api/homes/2');
+    const res = await request(app).delete('/api/v1/homes/2');
     expect(res.statusCode).toEqual(200);
   });
 
   it('should respond with status code 404 if resource is not found', async () => {
-    const res = await request(app).get('/api/homes/2');
+    const res = await request(app).get('/api/v1/homes/2');
     expect(res.statusCode).toEqual(404);
   });
   // sd
   it('should respond with 422 status code because validation error', async () => {
     const res = await request(app)
-      .post('/api/homes/1/devices')
+      .post('/api/v1/homes/1/devices')
       .send({
         name: 'Oven',
         status: true,
@@ -64,7 +66,7 @@ describe('Endpoints', () => {
   });
   it('should create a new post', async () => {
     const res = await request(app)
-      .post('/api/homes/1/devices')
+      .post('/api/v1/homes/1/devices')
       .send({
         name: 'Oven',
         status: true,
@@ -83,19 +85,19 @@ describe('Endpoints', () => {
     expect(res.body).toHaveProperty('id');
   });
   it('should get 1 item', async () => {
-    const res = await request(app).get('/api/homes/1/devices/1');
+    const res = await request(app).get('/api/v1/homes/1/devices/1');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('id');
   });
   it('should get all items', async () => {
-    const res = await request(app).get('/api/homes/1/devices');
+    const res = await request(app).get('/api/v1/homes/1/devices');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('data');
     expect(res.body).toHaveProperty('page');
   });
   it('should update a item', async () => {
     const res = await request(app)
-      .put('/api/homes/1/devices/1')
+      .put('/api/v1/homes/1/devices/1')
       .send({
         name: 'Oven',
         status: false,
@@ -114,12 +116,12 @@ describe('Endpoints', () => {
     expect(res.statusCode).toEqual(200);
   });
   it('should delete a post', async () => {
-    const res = await request(app).delete('/api/homes/1/devices/1');
+    const res = await request(app).delete('/api/v1/homes/1/devices/1');
     expect(res.statusCode).toEqual(200);
   });
 
   it('should respond with status code 404 if resource is not found', async () => {
-    const res = await request(app).get('/api/homes/1/devices/1');
+    const res = await request(app).get('/api/v1/homes/1/devices/1');
     expect(res.statusCode).toEqual(404);
   });
 });

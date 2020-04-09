@@ -1,11 +1,10 @@
 const { getItemById, readFile } = require('../../services');
-const { storePath } = require('../../config');
 
 const getHome = async (req, res) => {
   try {
     const homeid = Number(req.params.homeid);
 
-    let homes = await readFile(storePath);
+    let homes = await readFile();
 
     homes = JSON.parse(homes);
 

@@ -1,15 +1,14 @@
-const readFile = require('./readFile');
-const writeFile = require('./writeFile');
-const deleteItemById = require('./deleteItemById');
-const updateItemById = require('./updateItemById');
 const paginate = require('./paginate');
 const getItemById = require('./getItemById');
+const deleteItemById = require('./deleteItemById');
+const updateItemById = require('./updateItemById');
+const { readFile, writeFile } = require('./fileService');
 
 module.exports = {
-  readFile,
-  writeFile,
-  deleteItemById,
-  updateItemById,
   paginate,
   getItemById,
+  deleteItemById,
+  updateItemById,
+  readFile,
+  writeFile,
 };

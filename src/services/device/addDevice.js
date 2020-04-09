@@ -1,5 +1,4 @@
-const writeFile = require('../writeFile');
-const { storePath } = require('../../config');
+const { writeFile } = require('../fileService');
 
 const addDevice = async (device, houses, id) => {
   try {
@@ -7,12 +6,13 @@ const addDevice = async (device, houses, id) => {
       if (house.id === id) {
         house.devices.push(device);
       }
+
       return house;
     });
 
     const postedDevices = JSON.stringify(addedDevice);
 
-    await writeFile(storePath, postedDevices);
+    await writeFile(postedDevices);
   } catch (error) {
     console.error(error);
   }

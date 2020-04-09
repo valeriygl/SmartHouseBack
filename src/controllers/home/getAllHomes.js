@@ -1,9 +1,8 @@
 const { readFile } = require('../../services');
-const { storePath } = require('../../config');
 
 const getAllHomes = async (req, res) => {
   try {
-    const homes = await readFile(storePath);
+    const homes = await readFile();
 
     res.type('json');
     res.send(homes);

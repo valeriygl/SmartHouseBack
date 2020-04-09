@@ -3,9 +3,7 @@ const { getItemById } = require('../../services');
 const getDevice = async (req, res) => {
   const id = Number(req.params.id);
 
-  const homeid = Number(req.params.homeid);
-
-  const { devices } = getItemById(homeid, req.locals.homes);
+  const { devices } = getItemById(req.locals.homeid, req.locals.homes);
 
   const device = getItemById(id, devices);
 
