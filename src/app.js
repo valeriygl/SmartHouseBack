@@ -15,7 +15,7 @@ const app = express();
 
 const jsonParser = bodyParser.json();
 
-db.sequelize.sync();
+db.sequelize.sync({ force: true });
 
 dotenv.config();
 

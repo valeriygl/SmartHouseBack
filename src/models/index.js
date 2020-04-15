@@ -30,9 +30,17 @@ db.modeModeList = require('./modeModeList')(sequelize, Sequelize);
 db.house.hasMany(db.device);
 db.device.hasMany(db.range);
 db.device.hasMany(db.mode);
-db.mode.hasMany(db.modeModeList);
-db.modeList.hasMany(db.modeModeList);
-// db.mode.belongsToMany(db.modeList, { through: 'mode_mode_list' });
-// db.modeList.belongsToMany(db.mode, { through: 'mode_mode_list' });
+
+// db.mode.hasMany(db.modeModeList);
+// db.modeList.hasMany(db.modeModeList);
+
+db.mode.belongsToMany(db.modeList, {
+  through: { model: db.modeModeList },
+});
+db.modeList.belongsToMany(db.mode, {
+  through: { model: db.modeModeList },
+});
+
+// db.modeList.hasMany(db.mode, { constraints: false });
 
 module.exports = db;

@@ -1,12 +1,19 @@
 module.exports = (sequelize, Sequelize) => {
-  const ModeList = sequelize.define('mode_list', {
-    modeId: {
-      type: Sequelize.INTEGER,
+  const ModeList = sequelize.define(
+    'mode_modeList',
+    {
+      modeId: {
+        type: Sequelize.INTEGER,
+      },
+      modeListId: {
+        type: Sequelize.INTEGER,
+      },
+      status: {
+        type: Sequelize.BOOLEAN,
+      },
     },
-    modeListId: {
-      type: Sequelize.INTEGER,
-    },
-  });
+    { timestamps: false }
+  );
 
   return ModeList;
 };

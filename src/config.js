@@ -10,8 +10,8 @@ const idDevicePath = path.join(__dirname, 'db', 'idDevice.json');
 const dbConfig = {
   HOST: 'localhost',
   USER: 'root',
-  PORT: '3307',
-  PASSWORD: '',
+  PORT: '3306',
+  PASSWORD: 'mysql619',
   DB: 'testdb',
   dialect: 'mysql',
   pool: {
