@@ -1,6 +1,6 @@
 const app = require('express');
 
-const device = require('../controllers/device');
+const device = require('../controllers/v1/device');
 const validationSchema = require('../helpers/schemas');
 const { validationMiddleware, getDefaultPagParams } = require('../middlewares');
 

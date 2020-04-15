@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const { storePath } = require('../config');
+const { storePath } = require('../../config');
 
 const readFile = async () => {
   return new Promise((resolve, reject) => {

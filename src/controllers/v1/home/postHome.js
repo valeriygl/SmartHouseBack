@@ -1,7 +1,7 @@
-const { idHomePath } = require('../../config');
-const { getNextId } = require('../../helpers');
-const { readFile } = require('../../services');
-const { addHome } = require('../../services/home');
+const { idHomePath } = require('../../../config');
+const { getNextId } = require('../../../helpers');
+const { readFile } = require('../../../services/v1');
+const { addHome } = require('../../../services/v1/home');
 
 const postHome = async (req, res) => {
   try {
