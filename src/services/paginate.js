@@ -16,7 +16,7 @@ const paginate = (devices, reqPage, perPage) => {
 
   const data = devices.slice(firstInd, lastInd + 1);
 
-  return { data, totalPages, page, perPage };
+  return { data, totalItems: devicesLength, totalPages, page, perPage };
 };
 
 module.exports = paginate;

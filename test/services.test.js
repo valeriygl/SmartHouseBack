@@ -169,6 +169,7 @@ describe('services', () => {
 
     const expRes1 = {
       data: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'],
+      totalItems: 12,
       totalPages: 1,
       page: 1,
       perPage: 30,
@@ -176,6 +177,7 @@ describe('services', () => {
 
     const expRes2 = {
       data: ['a', 'b', 'c', 'd'],
+      totalItems: 12,
       totalPages: 3,
       page: 1,
       perPage: 4,
@@ -183,6 +185,7 @@ describe('services', () => {
 
     const expRes3 = {
       data: ['k', 'l'],
+      totalItems: 12,
       totalPages: 3,
       page: 3,
       perPage: 5,
