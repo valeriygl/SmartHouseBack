@@ -1,4 +1,4 @@
-const { readFile, getItemById } = require('../services');
+const { readFile, getItemById } = require('../services/v1');
 
 const isHomeExist = async (req, res, next) => {
   const id = Number(req.params.homeid);

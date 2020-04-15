@@ -1,6 +1,6 @@
-const { getNextId } = require('../../helpers');
-const { idDevicePath } = require('../../config');
-const { addDevice } = require('../../services/device');
+const { getNextId } = require('../../../helpers');
+const { idDevicePath } = require('../../../config');
+const { addDevice } = require('../../../services/v1/device');
 
 const postDevice = async (req, res) => {
   try {

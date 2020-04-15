@@ -1,9 +1,9 @@
-const { writeFile, updateItemById, getItemById } = require('../../services');
+const services = require('../../../services/v1');
 
 const updateDevice = async (req, res) => {
   const { homes, homeid } = req.locals;
 
-  const targetHome = getItemById(homeid, homes);
+  const targetHome = services.getItemById(homeid, homes);
 
   const { devices } = targetHome;
 
@@ -11,7 +11,7 @@ const updateDevice = async (req, res) => {
 
   const newDevice = req.body;
 
-  const { updatedItems: updatedDevices, wasUpdated } = updateItemById(
+  const { updatedItems: updatedDevices, wasUpdated } = services.updateItemById(
     devices,
     id,
     newDevice
@@ -29,10 +29,14 @@ const updateDevice = async (req, res) => {
     devices: updatedDevices,
   };
 
-  const { updatedItems: updatedHomes } = updateItemById(homes, homeid, newHome);
+  const { updatedItems: updatedHomes } = services.updateItemById(
+    homes,
+    homeid,
+    newHome
+  );
 
   try {
-    await writeFile(JSON.stringify(updatedHomes));
+    await services.writeFile(JSON.stringify(updatedHomes));
 
     res.sendStatus(200);
   } catch (error) {

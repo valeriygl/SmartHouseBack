@@ -1,5 +1,5 @@
-const { paginate, getItemById } = require('../../services');
-const { searchBySubname, filterByType } = require('../../services/device');
+const services = require('../../../services/v1/device');
+const { paginate, getItemById } = require('../../../services/v1');
 
 const getAllDevices = async (req, res) => {
   const { subname, type, page, perPage } = req.query;
@@ -7,11 +7,11 @@ const getAllDevices = async (req, res) => {
   let { devices } = getItemById(req.locals.homeid, req.locals.homes);
 
   if (subname) {
-    devices = searchBySubname(devices, subname);
+    devices = services.searchBySubname(devices, subname);
   }
 
   if (type) {
-    devices = filterByType(devices, type);
+    devices = services.filterByType(devices, type);
   }
 
   devices = paginate(devices, page, perPage);

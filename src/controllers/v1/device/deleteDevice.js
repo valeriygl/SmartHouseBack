@@ -1,4 +1,4 @@
-const services = require('../../services');
+const services = require('../../../services/v1');
 
 const deleteDevice = async (req, res) => {
   try {
