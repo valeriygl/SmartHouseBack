@@ -9,7 +9,7 @@ const db = require('./models');
 const router = require('./routes');
 const { port } = require('./config');
 const post = require('./controllers/postHomeDb');
-const postD = require('./controllers/postDeviceDb');
+const { postDevice } = require('./controllers/v2/device');
 
 const getDevices = require('./controllers/getDevicesDb');
 const getDevice = require('./controllers/getDeviceByPk');
@@ -34,7 +34,7 @@ app.use(cors());
 app.use(jsonParser);
 
 app.post('/', post.create);
-app.post('/:homeid', postD.create);
+app.post('/:homeid', postDevice);
 
 app.get('/', getDevices.findAll);
 app.get('/devices/:id', getDevice.findOne);
