@@ -5,9 +5,9 @@ const postDevice = async (req, res, next) => {
   try {
     const { body } = req;
 
-    const device = services.getBaseDevice(body, req.params.homeid);
+    const device = services.getBaseDevice(body);
 
-    const deviceRecord = await services.addDevice(device);
+    const deviceRecord = await services.addDevice(device, req.params.homeid);
 
     const deviceId = deviceRecord.id;
 
@@ -30,7 +30,7 @@ const postDevice = async (req, res, next) => {
       body.currentMode
     );
 
-    res.json({ ...body, id: deviceId });
+    res.json({ id: deviceId, ...body });
   } catch (error) {
     console.log(error);
     // next(error)

@@ -1,10 +1,9 @@
-const getBaseDevice = ({ name, status, type, image }, houseId) => {
+const getBaseDevice = ({ name, status, type, image }) => {
   const baseDevice = {
     name,
     status,
     type,
     image,
-    houseId,
   };
 
   return baseDevice;

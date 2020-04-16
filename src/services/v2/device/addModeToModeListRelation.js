@@ -7,10 +7,12 @@ const addModeToModeListRelation = (modeListRecords, modeId, currentMode) => {
     modeListRecords.map(modeListRecord => {
       const { id, name } = modeListRecord[0].dataValues;
 
-      return ModeModeList.create({
-        modeId,
-        modeListId: id,
-        status: name === currentMode,
+      return ModeModeList.findOrCreate({
+        where: {
+          modeId,
+          modeListId: id,
+          status: name === currentMode,
+        },
       });
     })
   );
