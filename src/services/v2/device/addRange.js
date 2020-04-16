@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const Range = db.range;
-
 const addRange = range => {
+  const Range = db.range;
+
   return Range.create(range);
 };
 

@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const ModeList = db.modeList;
-
 const addDeviceModes = modes => {
+  const ModeList = db.modeList;
+
   return Promise.all(
     modes.map(async mode =>
       ModeList.findOrCreate({

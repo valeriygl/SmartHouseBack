@@ -7,6 +7,7 @@ const getTotalCount = async (Model, homeid) => {
       [db.sequelize.fn('COUNT', db.sequelize.col('id')), 'totalcount'],
     ],
   });
+
   return count[0].dataValues.totalcount;
 };
 

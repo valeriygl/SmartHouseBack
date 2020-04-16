@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const Mode = db.mode;
-
 const addDeviceMode = mode => {
+  const Mode = db.mode;
+
   return Mode.create(mode);
 };
 
