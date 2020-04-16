@@ -1,9 +1,9 @@
-version: '2'
+version: '3'
 services:
   security:
     build: .
     ports:
-      - '3007:3007'
+      - '3001:3001'
     depends_on:
       - db
     environment:

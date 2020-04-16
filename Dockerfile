@@ -10,4 +10,3 @@ COPY . /app
 
 CMD npm start
 
-EXPOSE 3001

@@ -8,11 +8,11 @@ const idHomePath = path.join(__dirname, 'db', 'idHome.json');
 const idDevicePath = path.join(__dirname, 'db', 'idDevice.json');
 
 const dbConfig = {
-  HOST: 'localhost',
+  HOST: 'db',
   USER: 'root',
   PORT: '3306',
-  PASSWORD: 'mysql619',
-  DB: 'testdb',
+  PASSWORD: '123',
+  DB: 'CHIRINOS',
   dialect: 'mysql',
   pool: {
     max: 5,
