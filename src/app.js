@@ -9,7 +9,7 @@ const db = require('./models');
 const router = require('./routes');
 const { port } = require('./config');
 const post = require('./controllers/postHomeDb');
-const { postDevice } = require('./controllers/v2/device');
+const { postDevice, deleteDevice } = require('./controllers/v2/device');
 
 const getDevices = require('./controllers/getDevicesDb');
 
@@ -34,11 +34,12 @@ app.use(jsonParser);
 
 app.post('/', post.create);
 app.post('/:homeid', postDevice);
+app.delete('/homes/:homeid/devices/:id', deleteDevice);
 
 app.get('/', getDevices.findAll);
 
 app.delete('/:homeid', deleteHome);
-app.get('/', getAllHomes);
+app.get('/homes', getAllHomes);
 app.put('/:homeid', updateHome);
 
 app.use('/api', router);

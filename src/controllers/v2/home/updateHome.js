@@ -8,8 +8,6 @@ const updateHome = async (req, res, next) => {
 
     const isDone = await updateHomeById(id, newHouse);
 
-    console.log('isDone :', isDone);
-
     if (isDone[0] === 1) {
       res.sendStatus(200);
     } else {

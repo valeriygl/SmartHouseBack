@@ -7,7 +7,7 @@ const deleteHome = async (req, res, next) => {
 
     const isDone = await deleteHomeById(id);
 
-    if (isDone[0] === 1) {
+    if (isDone === 1) {
       res.sendStatus(200);
     } else {
       res.send({
