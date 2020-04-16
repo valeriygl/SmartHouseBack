@@ -1,3 +1,4 @@
+const db = require('../../../models');
 const services = require('../../../services/v2/device');
 const { rangeTypes, modeTypes } = require('../../../constants');
 
@@ -10,7 +11,7 @@ const postDevice = async (req, res, next) => {
 
     console.log('device :', device);
 
-    const deviceRecord = await services.addDevice(device);
+    const deviceRecord = await services.addDevice(device, db.device);
 
     const deviceId = deviceRecord.id;
 

@@ -1,15 +1,19 @@
 const addRange = require('./addRange');
-const addDevice = require('./addDevice');
+const addItem = require('./addItem');
 const getBaseDevice = require('./getBaseDevice');
 const addDeviceMode = require('./addDeviceMode');
 const addDeviceModes = require('./addDeviceModes');
+const getDeviceRecords = require('./getDevicesRecords');
+const parseDeviceRecords = require('./parseDeviceRecords');
 const addModeToModeListRelation = require('./addModeToModeListRelation');
 
 module.exports = {
   addRange,
-  addDevice,
+  addItem,
   getBaseDevice,
   addDeviceMode,
   addDeviceModes,
   addModeToModeListRelation,
+  getDeviceRecords,
+  parseDeviceRecords,
 };
