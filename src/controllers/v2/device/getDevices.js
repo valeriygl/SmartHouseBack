@@ -8,6 +8,8 @@ const getDevices = async (req, res) => {
 
   const { type, subname } = req.query;
 
+  const totalCount = await services.getTotalCount(db.device, Number(homeid));
+
   const page = Number(req.query.page) || 1;
 
   const limit = Number(req.query.perPage) || 8;
@@ -29,7 +31,7 @@ const getDevices = async (req, res) => {
     { limit, offset }
   );
   const parsedRecords = services.parseDeviceRecords(records);
-  res.json({ data: parsedRecords });
+  res.json({ data: parsedRecords, totalCount, page, perPage: limit });
 };
 
 module.exports = getDevices;

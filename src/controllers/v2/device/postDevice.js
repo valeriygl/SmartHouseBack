@@ -11,7 +11,7 @@ const postDevice = async (req, res, next) => {
 
     console.log('device :', device);
 
-    const deviceRecord = await services.addDevice(device, db.device);
+    const deviceRecord = await services.addItem(device, db.device);
 
     const deviceId = deviceRecord.id;
 
