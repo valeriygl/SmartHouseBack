@@ -1,34 +1,30 @@
+const { deviceTypes } = require('../../../constants');
+
+const parseBaseDevice = require('./parseBaseDevice');
+
 const parseDeviceRecords = records => {
   return records.map(record => {
-    let curentMode = '';
+    let currentMode = '';
 
     const modes = record.dataValues.modes[0].dataValues.mode_lists.map(mode => {
       if (mode.dataValues.mode_modeList.dataValues.status) {
-        curentMode = mode.dataValues.name;
+        currentMode = mode.dataValues.name;
       }
 
       return mode.dataValues.name;
     });
 
-    const { id, name, status, type, image, ranges } = record.dataValues;
+    const { id, ranges, type } = record.dataValues;
 
-    const { min, max, current, step } = ranges[0].dataValues;
+    let oneItem = parseBaseDevice(record.dataValues);
 
-    const oneItem = {
-      id,
-      name,
-      status,
-      type,
-      image,
-      temp: {
-        min,
-        max,
-        current,
-        step,
-      },
-      modes,
-      curentMode,
-    };
+    oneItem = { ...oneItem, id, modes, currentMode };
+
+    if (type === deviceTypes.OVEN) {
+      const { min, max, current, step } = ranges[0].dataValues;
+
+      oneItem = { ...oneItem, temp: { min, max, current, step } };
+    }
 
     return oneItem;
   });
