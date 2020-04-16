@@ -10,7 +10,14 @@ const router = require('./routes');
 const { port } = require('./config');
 const post = require('./controllers/postHomeDb');
 const postD = require('./controllers/postDeviceDb');
+
 const getDevices = require('./controllers/getDevicesDb');
+
+const {
+  deleteHome,
+  getAllHomes,
+  updateHome,
+} = require('./controllers/v2/home');
 
 const app = express();
 
@@ -27,7 +34,12 @@ app.use(jsonParser);
 
 app.post('/', post.create);
 app.post('/:homeid', postD.create);
+
 app.get('/', getDevices.findAll);
+
+app.delete('/:homeid', deleteHome);
+app.get('/', getAllHomes);
+app.put('/:homeid', updateHome);
 
 app.use('/api', router);
 
