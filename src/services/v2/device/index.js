@@ -1,5 +1,6 @@
 const addRange = require('./addRange');
 const addItem = require('./addItem');
+const getTotalCount = require('./getTotalCount');
 const getBaseDevice = require('./getBaseDevice');
 const addDeviceMode = require('./addDeviceMode');
 const addDeviceModes = require('./addDeviceModes');
@@ -16,4 +17,5 @@ module.exports = {
   addModeToModeListRelation,
   getDeviceRecords,
   parseDeviceRecords,
+  getTotalCount,
 };
