@@ -1,4 +1,4 @@
-const { getItemById } = require('../../services');
+const { getItemById } = require('../../../services/v1');
 
 const getDevice = async (req, res) => {
   const id = Number(req.params.id);

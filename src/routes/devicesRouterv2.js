@@ -1,13 +1,13 @@
 const app = require('express');
 
-const device = require('../controllers/v1/device');
+const device = require('../controllers/v2/device');
 const validationSchema = require('../helpers/schemas');
 const { validationMiddleware, getDefaultPagParams } = require('../middlewares');
 
 const devicesRouter = app.Router();
 
 devicesRouter
-  .route('/')
+  .route('/:homeid/devices')
   .post(
     validationMiddleware(validationSchema.device, 'body'),
     device.postDevice
@@ -19,12 +19,12 @@ devicesRouter
   );
 
 devicesRouter
-  .route('/:id')
-  .get(device.getDevice)
-  .delete(device.deleteDevice)
+  .route('/:homeid/devices/:id')
+  .get(device.getDeviceByPk)
   .put(
     validationMiddleware(validationSchema.device, 'body'),
     device.updateDevice
-  );
+  )
+  .delete(device.deleteDevice);
 
 module.exports = devicesRouter;

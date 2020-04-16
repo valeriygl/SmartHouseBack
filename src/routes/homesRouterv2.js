@@ -1,6 +1,6 @@
 const app = require('express');
 
-const home = require('../controllers/v1/home');
+const home = require('../controllers/v2/home');
 const validationSchema = require('../helpers/schemas');
 const { validationMiddleware } = require('../middlewares');
 

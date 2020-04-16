@@ -1,6 +1,6 @@
-const { readFile, writeFile, updateItemById } = require('../../services');
+const { readFile, writeFile, deleteItemById } = require('../../../services/v1');
 
-const updateHome = async (req, res) => {
+const deleteHome = async (req, res) => {
   try {
     const homes = await readFile();
 
@@ -8,12 +8,9 @@ const updateHome = async (req, res) => {
 
     const id = Number(req.params.homeid);
 
-    const newHome = req.body;
-
-    const { updatedItems: updatedHomes, wasUpdated } = updateItemById(
+    const { updatedItems: updatedHomes, wasUpdated } = deleteItemById(
       parsedHomes,
-      id,
-      newHome
+      id
     );
 
     if (!wasUpdated) {
@@ -32,4 +29,4 @@ const updateHome = async (req, res) => {
   }
 };
 
-module.exports = updateHome;
+module.exports = deleteHome;

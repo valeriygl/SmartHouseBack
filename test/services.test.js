@@ -1,5 +1,5 @@
-const services = require('../src/services');
-const { filterByType, searchBySubname } = require('../src/services/device');
+const services = require('../src/services/v1');
+const { filterByType, searchBySubname } = require('../src/services/v1/device');
 
 describe('services', () => {
   it('updateItemById() updates array by id', () => {

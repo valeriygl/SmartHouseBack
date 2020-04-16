@@ -7,7 +7,7 @@ const robotHoover = require('./robotHoover');
 const validationSchema = {
   homePOST: Joi.object().keys({
     name: Joi.string().required(),
-    devices: Joi.array().max(0).required(),
+    devices: Joi.array().max(0),
   }),
   homePUT: Joi.object().keys({
     name: Joi.string().required(),
