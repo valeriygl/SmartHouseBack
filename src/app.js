@@ -10,12 +10,18 @@ const router = require('./routes');
 const { port } = require('./config');
 const post = require('./controllers/postHomeDb');
 const postD = require('./controllers/postDeviceDb');
+const {
+  deleteHome,
+  getAllHomes,
+  updateHome,
+} = require('./controllers/v2/home');
 
 const app = express();
 
 const jsonParser = bodyParser.json();
 
-//db.sequelize.sync({ force: true });
+// db.sequelize.sync({ force: true });
+db.sequelize.sync();
 
 dotenv.config();
 
@@ -26,6 +32,9 @@ app.use(jsonParser);
 
 app.post('/', post.create);
 app.post('/:homeid', postD.create);
+app.delete('/:homeid', deleteHome);
+app.get('/', getAllHomes);
+app.put('/:homeid', updateHome);
 
 app.use('/api', router);
 
