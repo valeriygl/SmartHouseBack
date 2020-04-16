@@ -12,6 +12,7 @@ const post = require('./controllers/postHomeDb');
 const postD = require('./controllers/postDeviceDb');
 
 const getDevices = require('./controllers/getDevicesDb');
+const getDevice = require('./controllers/getDeviceByPk');
 
 const {
   deleteHome,
@@ -36,7 +37,7 @@ app.post('/', post.create);
 app.post('/:homeid', postD.create);
 
 app.get('/', getDevices.findAll);
-
+app.get('/devices/:id', getDevice.findOne);
 app.delete('/:homeid', deleteHome);
 app.get('/', getAllHomes);
 app.put('/:homeid', updateHome);

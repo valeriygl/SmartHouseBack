@@ -20,17 +20,7 @@ exports.findAll = async (req, res) => {
       },
     ],
   });
-  // const parsedRecords = records[0].for(record => {
-  //  return record.dataValues.id;
-  // });
 
-  const record = {
-    id: records[1].dataValues.id,
-    name: records[1].dataValues.name,
-    status: records[1].dataValues.status,
-    type: records[1].dataValues.type,
-    image: records[1].dataValues.image,
-  };
   const parsedRecords = records.map(record => {
     let curentMode = '';
     const modes = record.dataValues.modes[0].dataValues.mode_lists.map(mode => {
@@ -56,7 +46,6 @@ exports.findAll = async (req, res) => {
     };
     return oneItem;
   });
-  console.log(records[1].dataValues.ranges[0].dataValues);
 
   res.json(parsedRecords);
 };
