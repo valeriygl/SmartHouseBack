@@ -27,18 +27,41 @@ db.mode = require('./mode')(sequelize, Sequelize);
 db.modeList = require('./modeList')(sequelize, Sequelize);
 db.modeModeList = require('./modeModeList')(sequelize, Sequelize);
 
-db.house.hasMany(db.device);
-db.device.hasMany(db.range);
-db.device.hasMany(db.mode);
+db.house.hasMany(db.device, {
+  foreignKey: {
+    name: 'houseId',
+    allowNull: false,
+  },
+});
+db.device.hasMany(db.range, {
+  foreignKey: {
+    name: 'deviceId',
+    allowNull: false,
+  },
+});
+db.device.hasMany(db.mode, {
+  foreignKey: {
+    name: 'deviceId',
+    allowNull: false,
+  },
+});
 
 // db.mode.hasMany(db.modeModeList);
 // db.modeList.hasMany(db.modeModeList);
 
 db.mode.belongsToMany(db.modeList, {
   through: { model: db.modeModeList },
+  foreignKey: {
+    name: 'modeId',
+    allowNull: false,
+  },
 });
 db.modeList.belongsToMany(db.mode, {
   through: { model: db.modeModeList },
+  foreignKey: {
+    name: 'modeListId',
+    allowNull: false,
+  },
 });
 
 // db.modeList.hasMany(db.mode, { constraints: false });
