@@ -6,7 +6,7 @@ const getAllHomes = async (req, res, next) => {
 
     res.json(homes);
   } catch (error) {
-    // next(error);
+    next(error);
   }
 };
 

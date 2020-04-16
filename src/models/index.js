@@ -46,9 +46,6 @@ db.device.hasMany(db.mode, {
   },
 });
 
-// db.mode.hasMany(db.modeModeList);
-// db.modeList.hasMany(db.modeModeList);
-
 db.mode.belongsToMany(db.modeList, {
   through: { model: db.modeModeList },
   foreignKey: {
@@ -63,7 +60,5 @@ db.modeList.belongsToMany(db.mode, {
     allowNull: false,
   },
 });
-
-// db.modeList.hasMany(db.mode, { constraints: false });
 
 module.exports = db;

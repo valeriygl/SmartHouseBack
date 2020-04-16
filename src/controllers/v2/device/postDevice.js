@@ -6,17 +6,22 @@ const postDevice = async (req, res, next) => {
   try {
     const { body } = req;
 
-    const device = services.getBaseDevice(body);
+    const device = services.parseBaseDevice(body);
 
-    const deviceRecord = await services.addItem(device, db.device);
+    const deviceRecord = await services.addItem(
+      { ...device, houseId: req.params.homeid },
+      db.device
+    );
 
     const deviceId = deviceRecord.id;
 
-    await services.addRange({
-      ...body.temp,
-      type: rangeTypes.TEMP,
-      deviceId,
-    });
+    if (body.temp) {
+      await services.addRange({
+        ...body.temp,
+        type: rangeTypes.TEMP,
+        deviceId,
+      });
+    }
 
     const modeListRecords = await services.addDeviceModes(body.modes);
 
@@ -33,8 +38,7 @@ const postDevice = async (req, res, next) => {
 
     res.json({ id: deviceId, ...body });
   } catch (error) {
-    console.log(error);
-    // next(error)
+    next(error);
   }
 };
 

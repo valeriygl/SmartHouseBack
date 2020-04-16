@@ -1,10 +1,10 @@
 const addItem = require('./addItem');
 const addRange = require('./addRange');
 const getTotalCount = require('./getTotalCount');
-const getBaseDevice = require('./getBaseDevice');
 const addDeviceMode = require('./addDeviceMode');
 const addDeviceModes = require('./addDeviceModes');
 const deleteOldModes = require('./deleteOldModes');
+const parseBaseDevice = require('./parseBaseDevice');
 const updateRangeById = require('./updateRangeById');
 const getCurrentModeId = require('./getCurrentModeId');
 const deleteDeviceById = require('./deleteDeviceById');
@@ -18,10 +18,10 @@ module.exports = {
   addItem,
   addRange,
   getTotalCount,
-  getBaseDevice,
   addDeviceMode,
   addDeviceModes,
   deleteOldModes,
+  parseBaseDevice,
   updateRangeById,
   getCurrentModeId,
   deleteDeviceById,

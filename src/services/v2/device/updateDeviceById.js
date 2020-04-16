@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const Device = db.device;
-
 const updateDeviceById = (id, newDevice) => {
+  const Device = db.device;
+
   return Device.update(newDevice, { where: { id } });
 };
 

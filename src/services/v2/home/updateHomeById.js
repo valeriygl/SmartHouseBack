@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const House = db.house;
-
 const updateHomeById = (id, newHouse) => {
+  const House = db.house;
+
   return House.update(newHouse, { where: { id } });
 };
 

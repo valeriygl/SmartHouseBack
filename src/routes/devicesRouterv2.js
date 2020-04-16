@@ -18,6 +18,13 @@ devicesRouter
     device.getDevices
   );
 
-devicesRouter.route('/:homeid/devices/:id').get(device.getDeviceByPk);
+devicesRouter
+  .route('/:homeid/devices/:id')
+  .get(device.getDeviceByPk)
+  .put(
+    validationMiddleware(validationSchema.device, 'body'),
+    device.updateDevice
+  )
+  .delete(device.deleteDevice);
 
 module.exports = devicesRouter;

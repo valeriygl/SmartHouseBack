@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const Device = db.device;
-
 const deleteDeviceById = id => {
+  const Device = db.device;
+
   return Device.destroy({ where: { id } });
 };
 

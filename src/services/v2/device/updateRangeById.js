@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const Range = db.range;
-
 const updateRangeById = (newRange, type, deviceId) => {
+  const Range = db.range;
+
   return Range.update(newRange, { where: { type, deviceId } });
 };
 

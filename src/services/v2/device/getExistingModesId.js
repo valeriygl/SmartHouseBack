@@ -1,11 +1,11 @@
 const db = require('../../../models');
 
-const Mode = db.mode;
-const ModeList = db.modeList;
-
-const { Op } = db.Sequelize;
-
 const getExistingModesId = async modes => {
+  const Mode = db.mode;
+  const ModeList = db.modeList;
+
+  const { Op } = db.Sequelize;
+
   const data = await Mode.findAll({
     include: {
       model: ModeList,

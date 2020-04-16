@@ -1,6 +1,5 @@
 const { deleteHomeById } = require('../../../services/v2/home');
 
-// не удаляются записи из таблицы modeList
 const deleteHome = async (req, res, next) => {
   try {
     const id = Number(req.params.homeid);
@@ -10,12 +9,10 @@ const deleteHome = async (req, res, next) => {
     if (isDone === 1) {
       res.sendStatus(200);
     } else {
-      res.send({
-        message: `Cannot delete House with id=${id}. Maybe House was not found!`,
-      });
+      res.sendStatus(404);
     }
   } catch (error) {
-    // next(error);
+    next(error);
   }
 };
 

@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const House = db.house;
-
 const deleteHomeById = id => {
+  const House = db.house;
+
   return House.destroy({ where: { id } });
 };
 

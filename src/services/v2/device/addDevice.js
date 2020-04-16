@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const Device = db.device;
-
 const addDevice = (device, houseId) => {
+  const Device = db.device;
+
   return Device.create({ ...device, houseId });
 };
 

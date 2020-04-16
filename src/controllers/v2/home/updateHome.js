@@ -11,12 +11,12 @@ const updateHome = async (req, res, next) => {
     if (isDone[0] === 1) {
       res.sendStatus(200);
     } else {
-      res.send({
-        message: `Cannot update House with id=${id}. Maybe House was not found!`,
-      });
+      res.sendStatus(404);
     }
+
+    res.sendStatus(200);
   } catch (error) {
-    // next(error);
+    next(error);
   }
 };
 

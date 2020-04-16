@@ -7,7 +7,7 @@ const updateDevice = async (req, res, next) => {
 
     const deviceId = Number(req.params.id);
 
-    const device = services.getBaseDevice(body);
+    const device = services.parseBaseDevice(body);
 
     await services.updateDeviceById(deviceId, device);
 
@@ -40,8 +40,7 @@ const updateDevice = async (req, res, next) => {
 
     res.json({ ...body, id: deviceId });
   } catch (error) {
-    console.log(error);
-    // next(error);
+    next(error);
   }
 };
 

@@ -1,10 +1,10 @@
 const db = require('../../../models');
 
-const ModeModeList = db.modeModeList;
-
-const { Op } = db.Sequelize;
-
 const deleteOldModes = (modeId, modesId) => {
+  const ModeModeList = db.modeModeList;
+
+  const { Op } = db.Sequelize;
+
   return ModeModeList.destroy({
     where: { modeId, modeListId: { [Op.notIn]: modesId } },
   });
