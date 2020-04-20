@@ -9,7 +9,7 @@ const postDevice = async (req, res, next) => {
     const device = services.parseBaseDevice(body);
 
     const deviceRecord = await services.addItem(
-      { ...device, houseId: req.params.homeid },
+      { ...device, houseId: req.locals.homeid },
       db.device
     );
 

@@ -1,9 +1,11 @@
 const isHomeExist = require('./isHomeExist');
+const isHomeRecordExist = require('./isHomeRecordExist');
+const getDefaultPagParams = require('./getDefaultPagParams');
 const validationMiddleware = require('./validationMiddleware');
-const getDefaultPagParams = require('../middlewares/getDefaultPagParams');
 
 module.exports = {
   isHomeExist,
-  validationMiddleware,
+  isHomeRecordExist,
   getDefaultPagParams,
+  validationMiddleware,
 };
