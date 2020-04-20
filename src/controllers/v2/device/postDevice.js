@@ -3,23 +3,25 @@ const services = require('../../../services/v2/device');
 const { rangeTypes, modeTypes } = require('../../../constants');
 
 const postDevice = async (req, res, next) => {
-  console.log('hi');
   try {
     const { body } = req;
 
-    const device = services.getBaseDevice(body, req.params.homeid);
+    const device = services.parseBaseDevice(body);
 
-    console.log('device :', device);
-
-    const deviceRecord = await services.addItem(device, db.device);
+    const deviceRecord = await services.addItem(
+      { ...device, houseId: req.params.homeid },
+      db.device
+    );
 
     const deviceId = deviceRecord.id;
 
-    await services.addRange({
-      ...body.temp,
-      type: rangeTypes.TEMP,
-      deviceId,
-    });
+    if (body.temp) {
+      await services.addRange({
+        ...body.temp,
+        type: rangeTypes.TEMP,
+        deviceId,
+      });
+    }
 
     const modeListRecords = await services.addDeviceModes(body.modes);
 
@@ -34,10 +36,9 @@ const postDevice = async (req, res, next) => {
       body.currentMode
     );
 
-    res.json({ ...body, id: deviceId });
+    res.json({ id: deviceId, ...body });
   } catch (error) {
-    console.log(error);
-    // next(error)
+    next(error);
   }
 };
 

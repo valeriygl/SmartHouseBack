@@ -5,9 +5,9 @@ const updateHome = require('./updateHome');
 const getAllHomes = require('./getAllHomes');
 
 module.exports = {
+  getHome,
+  postHome,
   deleteHome,
   updateHome,
   getAllHomes,
-  getHome,
-  postHome,
 };

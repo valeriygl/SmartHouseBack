@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const House = db.house;
-
 const findAllHomes = () => {
+  const House = db.house;
+
   return House.findAll();
 };
 
