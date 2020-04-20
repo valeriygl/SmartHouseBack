@@ -7,7 +7,7 @@ const { validationMiddleware, getDefaultPagParams } = require('../middlewares');
 const devicesRouter = app.Router();
 
 devicesRouter
-  .route('/:homeid/devices')
+  .route('/')
   .post(
     validationMiddleware(validationSchema.device, 'body'),
     device.postDevice
@@ -19,7 +19,7 @@ devicesRouter
   );
 
 devicesRouter
-  .route('/:homeid/devices/:id')
+  .route('/:id')
   .get(device.getDeviceByPk)
   .put(
     validationMiddleware(validationSchema.device, 'body'),

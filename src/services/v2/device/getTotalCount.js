@@ -1,8 +1,8 @@
 const db = require('../../../models');
 
-const getTotalCount = async (Model, homeid) => {
+const getTotalCount = async (Model, condition) => {
   const count = await Model.findAll({
-    where: { houseId: homeid },
+    where: { ...condition },
     attributes: [
       [db.sequelize.fn('COUNT', db.sequelize.col('id')), 'totalcount'],
     ],

@@ -18,6 +18,7 @@ const getDeviceRecords = async (condition, paginationOptions) => {
       },
     ],
   });
+
   return records;
 };
 

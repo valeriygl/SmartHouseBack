@@ -5,15 +5,9 @@ const getDevices = async (req, res, next) => {
   try {
     const Op = db.Sequelize.Op;
 
-    const { homeid } = req.params;
+    const { homeid } = req.locals;
 
-    const { type, subname } = req.query;
-
-    const totalCount = await services.getTotalCount(db.device, Number(homeid));
-
-    const page = Number(req.query.page) || 1;
-
-    const limit = Number(req.query.perPage) || 8;
+    const { type, subname, page, perPage: limit } = req.query;
 
     const offset = (page - 1) * limit;
 
@@ -23,14 +17,18 @@ const getDevices = async (req, res, next) => {
 
     const typeCondition = type ? { type: type } : null;
 
-    const records = await services.getDeviceRecords(
-      {
-        houseid: homeid,
-        ...typeCondition,
-        ...subnameCondition,
-      },
-      { limit, offset }
-    );
+    const condition = {
+      houseid: homeid,
+      ...typeCondition,
+      ...subnameCondition,
+    };
+
+    const totalCount = await services.getTotalCount(db.device, condition);
+
+    const records = await services.getDeviceRecords(condition, {
+      limit,
+      offset,
+    });
 
     const parsedRecords = services.parseDeviceRecords(records);
 
