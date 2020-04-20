@@ -1,4 +1,4 @@
-FROM node:12.16.1
+FROM node:12
 
 WORKDIR /app
 
@@ -8,6 +8,5 @@ RUN npm install
 
 COPY . /app
 
-CMD node src/app.js
+CMD npm start
 
-EXPOSE 3001
