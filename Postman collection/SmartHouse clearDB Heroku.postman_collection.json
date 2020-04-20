@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "2b5e1bbd-1f15-423c-ab60-b085dc566709",
+		"name": "SmartHouse clearDB Heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "home",
+			"item": [
+				{
+					"name": "Add home",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"cool house\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all homes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes/:homeid",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes",
+								":homeid"
+							],
+							"variable": [
+								{
+									"key": "homeid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit home",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes/:homeid",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes",
+								":homeid"
+							],
+							"variable": [
+								{
+									"key": "homeid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete home",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes/:homeid",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes",
+								":homeid"
+							],
+							"variable": [
+								{
+									"key": "homeid",
+									"value": "31"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "device",
+			"item": [
+				{
+					"name": "Add new device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"some device\",\r\n    \"status\": false,\r\n    \"type\": \"oven\",\r\n    \"image\": \"some url\",\r\n    \"temp\" : {\r\n    \t\"min\" : 1,\r\n    \t\"max\" : 20,\r\n    \t\"current\" : 2,\r\n    \t\"step\" : 3\r\n    },\r\n    \"modes\" : [\"low\", \"mid\", \"high\"],\r\n    \"currentMode\" : \"low\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes/:homeid/devices",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes",
+								":homeid",
+								"devices"
+							],
+							"variable": [
+								{
+									"key": "homeid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new device(validation error)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Oven\",\r\n        \"status\": true,\r\n        \"type\": \"oven\",\r\n        \"image\": \"\",\r\n        \"temp\": {\r\n          \"max\": 0,\r\n          \"current\": 0,\r\n          \"step\": 0\r\n        },\r\n        \"modes\": [],\r\n        \"currentMode\": \"\"\r\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes/:homeid/devices",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes",
+								":homeid",
+								"devices"
+							],
+							"variable": [
+								{
+									"key": "homeid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes/:homeid/devices",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes",
+								":homeid",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "robot-hoover",
+									"disabled": true
+								},
+								{
+									"key": "perPage",
+									"value": "asd",
+									"disabled": true
+								},
+								{
+									"key": "subname",
+									"value": "a",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "homeid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get device by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes/:homeid/devices/:id",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes",
+								":homeid",
+								"devices",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "homeid",
+									"value": "1"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit device",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"name\": \"bla\",\r\n        \"state\": false,\r\n        \"range\": {\r\n          \"min\": 1,\r\n          \"max\": 100,\r\n          \"value\": 25\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes/:homeid/devices/:id",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes",
+								":homeid",
+								"devices",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "homeid",
+									"value": "1"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete device",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://smart-house-cleardb.herokuapp.com/api/v2/homes/:homeid/devices/:id",
+							"protocol": "https",
+							"host": [
+								"smart-house-cleardb",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homes",
+								":homeid",
+								"devices",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "homeid",
+									"value": "1"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
