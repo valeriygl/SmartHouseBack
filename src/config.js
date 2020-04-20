@@ -8,11 +8,10 @@ const idHomePath = path.join(__dirname, 'db', 'idHome.json');
 const idDevicePath = path.join(__dirname, 'db', 'idDevice.json');
 
 const dbConfig = {
-  HOST: 'db',
-  USER: 'root',
-  PORT: '3306',
-  PASSWORD: '123',
-  DB: 'CHIRINOS',
+  HOST: 'eu-cdbr-west-03.cleardb.net',
+  USER: 'b750ff396e325c',
+  PASSWORD: 'c61b8e41',
+  DB: 'heroku_de252d9cb966607',
   dialect: 'mysql',
   pool: {
     max: 5,
