@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 const { findHomeById } = require('../../../services/v2/home');
 
 const getHome = async (req, res, next) => {

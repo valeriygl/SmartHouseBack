@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 const { addItem } = require('../../../services/v2/device');
 
 const postHome = async (req, res, next) => {

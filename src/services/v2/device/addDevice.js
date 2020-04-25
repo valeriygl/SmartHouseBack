@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 
 const addDevice = (device, houseId) => {
   const Device = db.device;

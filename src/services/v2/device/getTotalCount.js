@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 
 const getTotalCount = async (Model, condition) => {
   const count = await Model.findAll({

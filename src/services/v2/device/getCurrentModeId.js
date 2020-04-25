@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 
 const getCurrentModeId = async (deviceId, type) => {
   const Mode = db.mode;

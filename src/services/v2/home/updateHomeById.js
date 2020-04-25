@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 
 const updateHomeById = (id, newHouse) => {
   const House = db.house;
