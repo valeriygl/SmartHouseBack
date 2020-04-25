@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 
 const getExistingModesId = async modes => {
   const Mode = db.mode;
