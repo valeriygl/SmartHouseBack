@@ -2,7 +2,7 @@ const { addDevice } = require('../../../services/mongoSevices');
 
 const postDevice = async (req, res, next) => {
   try {
-    const { homeid } = req.params;
+    const { homeid } = req.locals;
     const device = await addDevice(homeid, req.body);
     res.send(device);
   } catch (err) {
