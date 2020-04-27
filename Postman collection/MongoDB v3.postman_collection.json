@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "68d16124-2244-4064-a4a3-21fdcf4575be",
+		"name": "Smarthouse MongoDB v3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "home",
+			"item": [
+				{
+					"name": "update home",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"хата\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v3/homes/5ea63ae3dcff6c001a1ee24e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v3",
+								"homes",
+								"5ea63ae3dcff6c001a1ee24e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete home",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v3/homes/5ea63ae3dcff6c001a1ee24e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v3",
+								"homes",
+								"5ea63ae3dcff6c001a1ee24e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all homes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v3/homes/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v3",
+								"homes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get home by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v3/homes/5ea63ae3dcff6c001a1ee24e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v3",
+								"homes",
+								"5ea63ae3dcff6c001a1ee24e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add home",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"my COOl house\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v3/homes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v3",
+								"homes"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "device",
+			"item": [
+				{
+					"name": "delete device",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v3/homes/5ea63ae3dcff6c001a1ee24e/devices/5ea63bb3dcff6c001a1ee24f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v3",
+								"homes",
+								"5ea63ae3dcff6c001a1ee24e",
+								"devices",
+								"5ea63bb3dcff6c001a1ee24f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update device",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {   \r\n    \"type\": \"oven\",\r\n    \"name\": \"casual\",\r\n    \"image\": \"\",\r\n    \"status\": false,\r\n    \"temp\": {\r\n                \"min\": 0,\r\n                \"max\": 100,\r\n                \"current\": 55,\r\n                \"step\": 5\r\n            },\r\n    \"modes\": [\"qv\", \"mid\", \"max\", \"extra\"],\r\n    \"currentMode\": \"max\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v3/homes/5ea63ae3dcff6c001a1ee24e/devices/5ea63bb3dcff6c001a1ee24f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v3",
+								"homes",
+								"5ea63ae3dcff6c001a1ee24e",
+								"devices",
+								"5ea63bb3dcff6c001a1ee24f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add device",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {   \r\n    \"type\": \"oven\",\r\n    \"name\": \"sec\",\r\n    \"image\": \"\",\r\n    \"status\": false,\r\n    \"modes\": [\"low\", \"mid\", \"max\"],\r\n    \"currentMode\": \"mid\",\r\n    \"temp\": {\"min\": 0, \"max\": 100, \"current\": 55, \"step\": 5}\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v3/homes/5ea63ae3dcff6c001a1ee24e/devices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v3",
+								"homes",
+								"5ea63ae3dcff6c001a1ee24e",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get devices with type, subname, page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v3/homes/5ea63ae3dcff6c001a1ee24e/devices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v3",
+								"homes",
+								"5ea63ae3dcff6c001a1ee24e",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get device by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v3/homes/5ea63ae3dcff6c001a1ee24e/devices/5ea63bb3dcff6c001a1ee24f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v3",
+								"homes",
+								"5ea63ae3dcff6c001a1ee24e",
+								"devices",
+								"5ea63bb3dcff6c001a1ee24f"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

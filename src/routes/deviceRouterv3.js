@@ -18,6 +18,10 @@ devicesRouterv3
     device.getDevices
   );
 
-devicesRouterv3.route('/:id').get(device.getDevice);
+devicesRouterv3
+  .route('/:id')
+  .get(device.getDevice)
+  .delete(device.deleteDevice)
+  .put(validationMiddleware(validationSchema.device, 'body'), device.putDevice);
 
 module.exports = devicesRouterv3;
