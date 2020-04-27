@@ -5,15 +5,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const errorHandler = require('errorhandler');
 
-const db = require('./models');
+const db = require('./models/sqlModels');
 const router = require('./routes');
 const { port } = require('./config');
+const mongo = require('./mongoConfig');
 
 const app = express();
 
 const jsonParser = bodyParser.json();
 
 db.sequelize.sync();
+mongo();
 
 dotenv.config();
 

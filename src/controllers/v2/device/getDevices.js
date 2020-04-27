@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 const services = require('../../../services/v2/device');
 
 const getDevices = async (req, res, next) => {

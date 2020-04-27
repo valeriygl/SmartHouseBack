@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 
 const getDeviceRecords = async (condition, paginationOptions) => {
   const Device = db.device;

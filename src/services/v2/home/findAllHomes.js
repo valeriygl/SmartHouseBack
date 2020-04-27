@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 
 const findAllHomes = () => {
   const House = db.house;

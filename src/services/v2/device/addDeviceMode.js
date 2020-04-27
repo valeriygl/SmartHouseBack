@@ -1,4 +1,4 @@
-const db = require('../../../models');
+const db = require('../../../models/sqlModels');
 
 const addDeviceMode = mode => {
   const Mode = db.mode;

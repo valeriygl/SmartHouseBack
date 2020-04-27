@@ -1,9 +1,12 @@
 version: '3'
 services:
   security:
+    container_name: docker-node
     build: .
     ports:
       - '3001:3001'
+    links:
+      - mongo
     depends_on:
       - db
     environment:
@@ -12,3 +15,8 @@ services:
       - ./sample-service/api:/app/api
   db:
     build: ./database-service
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
