@@ -13,6 +13,6 @@ const houseSchema = new Schema(
   { versionKey: false }
 );
 
-const house = Model('house', houseSchema);
+const House = Model('house', houseSchema);
 
-module.exports = house;
+module.exports = House;

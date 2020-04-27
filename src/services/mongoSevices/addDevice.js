@@ -1,4 +1,4 @@
-const House = require('../../models/mongoModels/houseModel');
+const { House } = require('../../models/mongoModels');
 
 const addDevice = async (id, data) => {
   const house = await House.findById(id);

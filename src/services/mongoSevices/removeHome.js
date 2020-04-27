@@ -1,4 +1,4 @@
-const House = require('../../models/mongoModels/houseModel');
+const { House } = require('../../models/mongoModels');
 
 const removeHome = async id => {
   const home = await House.findByIdAndDelete(id);
