@@ -1,4 +1,4 @@
-const House = require('../../models/mongoModels/houseModel');
+const { House } = require('../../models/mongoModels');
 
 const addHouse = async data => {
   const house = new House(data);

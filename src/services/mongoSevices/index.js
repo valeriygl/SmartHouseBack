@@ -1,6 +1,21 @@
-const addDevice = require('./addDevice');
 const addHouse = require('./addHouse');
-const findHouseById = require('./findHouseById');
+const addDevice = require('./addDevice');
+const updateHome = require('./updateHome');
+const removeHome = require('./removeHome');
+const getAllHomes = require('./getAllHomes');
 const findDevices = require('./findDevices');
+const updateDevice = require('./updateDevice');
+const removeDevice = require('./removeDevice');
+const findHouseById = require('./findHouseById');
 
-module.exports = { addDevice, addHouse, findHouseById, findDevices };
+module.exports = {
+  addHouse,
+  addDevice,
+  updateHome,
+  removeHome,
+  getAllHomes,
+  findDevices,
+  updateDevice,
+  removeDevice,
+  findHouseById,
+};

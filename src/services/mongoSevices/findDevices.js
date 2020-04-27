@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 const mongoose = require('mongoose');
 
-const House = require('../../models/mongoModels/houseModel');
+const { House } = require('../../models/mongoModels');
 
 const findDevices = async (homeid, type, subname) => {
   const ObjectId = mongoose.Types.ObjectId;

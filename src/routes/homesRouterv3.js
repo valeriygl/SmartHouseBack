@@ -8,8 +8,13 @@ const homesRouterv3 = app.Router();
 
 homesRouterv3
   .route('/')
-  .post(validationMiddleware(validationSchema.homePOST, 'body'), home.postHome);
+  .post(validationMiddleware(validationSchema.homePOST, 'body'), home.postHome)
+  .get(home.getHomes);
 
-homesRouterv3.route('/:homeid').get(home.getHome);
+homesRouterv3
+  .route('/:homeid')
+  .get(home.getHome)
+  .delete(home.deleteHome)
+  .put(validationMiddleware(validationSchema.homePUT, 'body'), home.putHome);
 
 module.exports = homesRouterv3;
