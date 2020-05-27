@@ -6,17 +6,17 @@ versioning system. v1 uses .json for store, v2 - MySQL, v3 - MongoDB
 
 **API**
 
-<p>/api/[v1/v2/v3]/homes/ - CREATE new home</p>
-<p>/api/[v1/v2/v3]/homes/ - GET all homes</p>
-<p>/api/[v1/v2/v3]/homes/:homeid - GET home by id</p>
-<p>/api/[v1/v2/v3]/homes/:homeid - DELETE home by id</p>
-<p>/api/[v1/v2/v3]/homes/:homeid - UPDATE home by id</p>
+/api/[v1/v2/v3]/homes/ - CREATE new home<br />
+/api/[v1/v2/v3]/homes/ - GET all homes<br />
+/api/[v1/v2/v3]/homes/:homeid - GET home by id<br />
+/api/[v1/v2/v3]/homes/:homeid - DELETE home by id<br />
+/api/[v1/v2/v3]/homes/:homeid - UPDATE home by id<br />
 
-<p>/api/[v1/v2/v3]/homes/:homeid/devices/ - CREATE new device</p>
-<p>/api/[v1/v2/v3]/homes/:homeid/devices/:id?page=[]&perPage=[]&type=[]&subname=[] - GET devices</p>
-<p>/api/[v1/v2/v3]/homes/:homeid/devices/:id - GET device by id</p>
-<p>/api/[v1/v2/v3]/homes/:homeid/devices/:id - DELETE device by id</p>
-<p>/api/[v1/v2/v3]/homes/:homeid/devices/:id - UPDATE device by id</p>
+/api/[v1/v2/v3]/homes/:homeid/devices/ - CREATE new device<br />
+/api/[v1/v2/v3]/homes/:homeid/devices/:id?page=[]&perPage=[]&type=[]&subname=[] - GET devices<br />
+/api/[v1/v2/v3]/homes/:homeid/devices/:id - GET device by id<br />
+/api/[v1/v2/v3]/homes/:homeid/devices/:id - DELETE device by id<br />
+/api/[v1/v2/v3]/homes/:homeid/devices/:id - UPDATE device by id<br />
 
 <p>Technologies: JavaScript, NodeJS, Express, MySQL, Sequelize, MongoDB, Mongoose,
 Jest, Supertest, Joi, GIT, Docker, Postman, ESLint.</p>
