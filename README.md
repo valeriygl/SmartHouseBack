@@ -21,4 +21,6 @@ versioning system. v1 uses .json for store, v2 - MySQL, v3 - MongoDB
 <p>Technologies: JavaScript, NodeJS, Express, MySQL, Sequelize, MongoDB, Mongoose,
 Jest, Supertest, Joi, GIT, Docker, Postman, ESLint.</p>
 
+**Database scheme**
+
 ![alt-текст](https://github.com/valeriygl/SmartHouseBack/blob/master/db-scheme.png "DB scheme")
